@@ -20,6 +20,10 @@ function piste() {
     //Skipiste
     ski.fillStyle = "#FAFAFA";
     ski.fillRect(0, 100, 800, 600);
+    //Hütte
+    ski.fillStyle = "#8A4B08";
+    ski.fillRect(375, 70, 50, 30);
+    ski.fillRect(360, 60, 80, 10);
     //Pistenbögen
     ski.beginPath();
     ski.moveTo(0, 100);
@@ -33,18 +37,25 @@ function piste() {
     ski.bezierCurveTo(400, 150, 800, 150, 800, 100);
     ski.stroke();
     ski.fill();
-    /*Berge
-    
+    //Berge
     ski.beginPath();
-    ski.moveTo(150,140);
-    ski.lineTo(250,20);
-    ski.lineTo(350,150);
+    ski.moveTo(100, 135);
+    ski.lineTo(200, 10);
+    ski.lineTo(310, 136);
     ski.closePath();
+    ski.strokeStyle = "D8D8D8";
     ski.stroke();
-    ski.fillStyle="red";
+    ski.fillStyle = "BDBDBD";
     ski.fill();
-
-    */
+    ski.beginPath();
+    ski.moveTo(515, 135);
+    ski.lineTo(615, 10);
+    ski.lineTo(725, 137);
+    ski.closePath();
+    ski.strokeStyle = "D8D8D8";
+    ski.stroke();
+    ski.fillStyle = "BDBDBD";
+    ski.fill();
     //Lift
     ski.beginPath();
     ski.moveTo(400, 120);

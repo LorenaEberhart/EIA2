@@ -9,13 +9,14 @@ Er wurde nicht kopiert und auch nicht diktiert.
 
 */
 
+window.addEventListener("load", hallo);
 
-function hallo() {
+function hallo(): void {
 
-let name = prompt("What´s your name?", "");
+let name : string = prompt ("What´s your name?", "");
 
 if (name != null) {
-    document.getElementById("test").innerHTML =
-    "Hello " + name + "! Nice to meet you!";
+    
+   alert("Hello " + name + "! Nice to meet you!");
 }
     }

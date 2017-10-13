@@ -8,11 +8,11 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert.
 
 */
+window.addEventListener("load", hallo);
 function hallo() {
     let name = prompt("What´s your name?", "");
     if (name != null) {
-        document.getElementById("test").innerHTML =
-            "Hello " + name + "! Nice to meet you!";
+        alert("Hello " + name + "! Nice to meet you!");
     }
 }
 //# sourceMappingURL=Aufgabe0.js.map

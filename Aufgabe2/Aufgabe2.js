@@ -2,7 +2,7 @@
 Aufgabe: Aufgabe 2 - Functions: Skipiste
 Name: Lorena Eberhart
 Matrikel: 256328
-Datum: 17.10.17
+Datum: 20.10.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert.
@@ -84,43 +84,46 @@ var A2;
             let y = 200 + Math.random() * 100;
             drawRandom(x, y);
         }
-        function drawTree(_x, _y) {
-            ski.beginPath();
-            ski.moveTo(_x, _y);
-            ski.lineTo(_x + 100, _y);
-            ski.lineTo(_x + 50, _y - 150);
-            ski.closePath();
-            ski.strokeStyle = "#088A4B";
-            ski.stroke();
-            ski.fillStyle = "#088A4B";
-            ski.fill();
-        }
-        function drawRandom(_x, _y) {
-            ski.beginPath();
-            ski.moveTo(_x, _y);
-            ski.lineTo(_x + 30, _y);
-            ski.lineTo(_x + 15, _y - 70);
-            ski.closePath();
-            ski.strokeStyle = "#0B6138";
-            ski.stroke();
-            ski.fillStyle = "#0B6138";
-            ski.fill();
-        }
         //Zufällige Schneeflocken
-        for (let i = 0; i < 10; i++) {
-            let x = 300 + Math.random() + 150;
-            let y = 100 + Math.random() + 20;
+        for (let i = 0; i < 200; i++) {
+            let x = Math.random() * 800;
+            let y = Math.random() * 120;
             drawSnow(x, y);
         }
-        //Schneeflocken
-        function drawSnow(_x, _y) {
-            ski.beginPath();
-            ski.arc(_x, _y, 2, 0, 2 * Math.PI);
-            ski.strokeStyle = "red";
-            ski.stroke();
-            ski.fillStyle = "white";
-            ski.fill();
-        }
+    }
+    //Funktionen
+    //Bäume
+    function drawTree(_x, _y) {
+        ski.beginPath();
+        ski.moveTo(_x, _y);
+        ski.lineTo(_x + 100, _y);
+        ski.lineTo(_x + 50, _y - 150);
+        ski.closePath();
+        ski.strokeStyle = "#088A4B";
+        ski.stroke();
+        ski.fillStyle = "#088A4B";
+        ski.fill();
+    }
+    //Zufällige Bäume
+    function drawRandom(_x, _y) {
+        ski.beginPath();
+        ski.moveTo(_x, _y);
+        ski.lineTo(_x + 30, _y);
+        ski.lineTo(_x + 15, _y - 70);
+        ski.closePath();
+        ski.strokeStyle = "#0B6138";
+        ski.stroke();
+        ski.fillStyle = "#0B6138";
+        ski.fill();
+    }
+    //Schneeflocken
+    function drawSnow(_x, _y) {
+        ski.beginPath();
+        ski.arc(_x, _y, 2, 0, 2 * Math.PI);
+        ski.strokeStyle = "white";
+        ski.stroke();
+        ski.fillStyle = "white";
+        ski.fill();
     }
 })(A2 || (A2 = {}));
 //# sourceMappingURL=Aufgabe2.js.map

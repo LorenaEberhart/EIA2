@@ -2,7 +2,7 @@
 Aufgabe: Aufgabe 2 - Functions: Skipiste
 Name: Lorena Eberhart
 Matrikel: 256328
-Datum: 17.10.17
+Datum: 20.10.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 Er wurde nicht kopiert und auch nicht diktiert.
@@ -112,6 +112,25 @@ function piste(): void {
     }
     
     
+     //Zufällige Schneeflocken
+    
+      for (let i: number= 0; i<200; i++) {
+        let x: number= Math.random()*800;
+        let y: number= Math.random()*120;
+        drawSnow(x,y);
+  
+    }
+    
+    
+   
+    
+    
+ }
+     
+    //Funktionen
+    
+    
+      //Bäume
     function drawTree(_x: number, _y: number):void {
     ski.beginPath();
     ski.moveTo(_x,_y);
@@ -123,9 +142,9 @@ function piste(): void {
     ski.fillStyle="#088A4B";
     ski.fill(); 
         
-      }  
+   }  
     
-    
+    //Zufällige Bäume
     function drawRandom(_x: number, _y: number):void {
     ski.beginPath();
     ski.moveTo(_x,_y);
@@ -137,18 +156,7 @@ function piste(): void {
     ski.fillStyle="#0B6138";
     ski.fill(); 
         
-      }  
-    
-    
-     //Zufällige Schneeflocken
-    
-      for (let i: number= 0; i<10; i++) {
-        let x: number= 300+Math.random()+150;
-        let y: number= 100+Math.random()+20;
-        drawSnow(x,y);
-  
-    }
-    
+   }  
     
     
    //Schneeflocken
@@ -158,16 +166,11 @@ function piste(): void {
     
     ski.beginPath();
     ski.arc(_x,_y,2,0,2*Math.PI);
-    ski.strokeStyle="red";
+    ski.strokeStyle="white";
     ski.stroke();
     ski.fillStyle="white";
     ski.fill();
     }
     
-    
-   
-    
-    
-    }
     
  }

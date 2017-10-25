@@ -88,9 +88,10 @@ var A3;
         }
         animate();
         for (let i = 0; i < 200; i++) {
-            arrayX[i] = 200;
-            arrayY[i] = 150;
+            arrayX[i] = 0;
+            arrayY[i] = 0;
         }
+        ski.getImageData;
     }
     //Funktionen
     //Bäume
@@ -119,17 +120,15 @@ var A3;
     }
     //Schneeflocken
     function animate() {
-        ski.clearRect(0, 0, 800, 600);
+        //ski.clearRect(0,0,800,600);
         for (let i = 0; i < arrayX.length; i++) {
             arrayX[i] += Math.random() * 800;
             arrayY[i] += Math.random() * 120;
             ski.arc(arrayX[i], arrayY[i], 2, 0, 2 * Math.PI);
-            ski.strokeStyle = "white";
-            ski.stroke();
             ski.fillStyle = "white";
             ski.fill();
         }
-        window.setTimeout(animate, 20);
+        window.setTimeout(animate, 1000);
     }
 })(A3 || (A3 = {}));
 //# sourceMappingURL=Aufgabe3.js.map

@@ -14,6 +14,7 @@ var A3;
     var ski;
     let arrayX = [];
     let arrayY = [];
+    let image;
     function piste() {
         var canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -25,7 +26,7 @@ var A3;
         //Skipiste
         ski.fillStyle = "#FAFAFA";
         ski.fillRect(0, 100, 800, 600);
-        //Hütte
+        //Hüt   
         ski.fillStyle = "#8A4B08";
         ski.fillRect(375, 70, 50, 30);
         ski.fillRect(360, 60, 80, 10);
@@ -42,7 +43,7 @@ var A3;
         ski.bezierCurveTo(400, 150, 800, 150, 800, 100);
         ski.stroke();
         ski.fill();
-        //Berge
+        //Be    
         ski.beginPath();
         ski.moveTo(100, 135);
         ski.lineTo(200, 10);
@@ -61,7 +62,7 @@ var A3;
         ski.stroke();
         ski.fillStyle = "BDBDBD";
         ski.fill();
-        //Lift
+        //L    
         ski.beginPath();
         ski.moveTo(400, 120);
         ski.lineTo(400, 80);
@@ -86,12 +87,12 @@ var A3;
             let y = 200 + Math.random() * 100;
             drawRandom(x, y);
         }
-        animate();
         for (let i = 0; i < 200; i++) {
-            arrayX[i] = 0;
-            arrayY[i] = 0;
+            arrayX[i] = 0 + Math.random() * 800;
+            arrayY[i] = 0 + Math.random() * 600;
         }
-        ski.getImageData;
+        image = ski.getImageData(0, 0, 800, 600);
+        animate();
     }
     //Funktionen
     //Bäume
@@ -121,14 +122,24 @@ var A3;
     //Schneeflocken
     function animate() {
         //ski.clearRect(0,0,800,600);
+        ski.putImageData(image, 0, 0);
         for (let i = 0; i < arrayX.length; i++) {
-            arrayX[i] += Math.random() * 800;
-            arrayY[i] += Math.random() * 120;
-            ski.arc(arrayX[i], arrayY[i], 2, 0, 2 * Math.PI);
+            if (arrayY[i] > 600) {
+                arrayY[i] = 0;
+            }
+            if (arrayX[i] > 800) {
+                arrayX[i] = 0;
+            }
+            arrayX[i] += Math.random();
+            arrayY[i] += Math.random();
+            ski.beginPath();
+            ski.arc(arrayX[i], arrayY[i], 2.5, 0, 2 * Math.PI);
+            ski.strokeStyle = "white";
+            ski.stroke();
             ski.fillStyle = "white";
             ski.fill();
         }
-        window.setTimeout(animate, 1000);
+        window.setTimeout(animate, 30);
     }
 })(A3 || (A3 = {}));
 //# sourceMappingURL=Aufgabe3.js.map

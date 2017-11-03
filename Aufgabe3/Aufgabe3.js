@@ -2,7 +2,7 @@
 Aufgabe: Aufgabe 3 - Animation: Schneegestöber
 Name: Lorena Eberhart
 Matrikel: 256328
-Datum: 20.10.17
+Datum: 03.11.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert.
@@ -14,6 +14,12 @@ var A3;
     var ski;
     let arrayX = [];
     let arrayY = [];
+    let skiX = [];
+    let skiY = [];
+    let skiOrigX = [];
+    let skiOrigY = [];
+    let sonneX = [];
+    let sonneY = [];
     let image;
     function piste() {
         var canvas = document.getElementsByTagName("canvas")[0];
@@ -26,7 +32,7 @@ var A3;
         //Skipiste
         ski.fillStyle = "#FAFAFA";
         ski.fillRect(0, 100, 800, 600);
-        //Hüt   
+        //Hütte   
         ski.fillStyle = "#8A4B08";
         ski.fillRect(375, 70, 50, 30);
         ski.fillRect(360, 60, 80, 10);
@@ -43,7 +49,7 @@ var A3;
         ski.bezierCurveTo(400, 150, 800, 150, 800, 100);
         ski.stroke();
         ski.fill();
-        //Be    
+        //Berge    
         ski.beginPath();
         ski.moveTo(100, 135);
         ski.lineTo(200, 10);
@@ -62,7 +68,7 @@ var A3;
         ski.stroke();
         ski.fillStyle = "BDBDBD";
         ski.fill();
-        //L    
+        //Lift    
         ski.beginPath();
         ski.moveTo(400, 120);
         ski.lineTo(400, 80);
@@ -81,20 +87,34 @@ var A3;
         drawTree(130, 450);
         drawTree(80, 430);
         drawTree(5, 580);
+        //----------------Schleifen----------------//        
         //Zufällige Bäume
         for (let i = 0; i < 15; i++) {
             let x = 50 + Math.random() * 200;
             let y = 200 + Math.random() * 100;
             drawRandom(x, y);
         }
+        //Schneeflocken
         for (let i = 0; i < 200; i++) {
             arrayX[i] = 0 + Math.random() * 800;
             arrayY[i] = 0 + Math.random() * 600;
         }
+        //Skifahrer
+        for (let i = 0; i < 6; i++) {
+            skiX[i] = 250 + Math.random() * 100;
+            skiY[i] = 130 + Math.random() * 300;
+            skiOrigX[i] = skiX[i];
+            skiOrigY[i] = skiY[i];
+        }
+        //Sonne
+        for (let i = 0; i < 1; i++) {
+            sonneX[i] = 20;
+            sonneY[i] = 20;
+        }
         image = ski.getImageData(0, 0, 800, 600);
         animate();
     }
-    //Funktionen
+    //-------------Funktionen------------//
     //Bäume
     function drawTree(_x, _y) {
         ski.beginPath();
@@ -119,10 +139,38 @@ var A3;
         ski.fillStyle = "#0B6138";
         ski.fill();
     }
-    //Schneeflocken
+    //Skifahrer
+    function skifahrer(_x, _y) {
+        //Körper
+        ski.beginPath();
+        ski.fillStyle = "black";
+        ski.fillRect(_x, _y, 5, -30);
+        //Kopf
+        ski.beginPath();
+        ski.arc(_x + 3, _y - 30, 8, 0, 3 * Math.PI);
+        ski.fillStyle = "black";
+        ski.fill();
+        //Skier
+        ski.stroke();
+        ski.moveTo(_x + 30, _y + 10);
+        ski.lineTo(_x - 10, _y - 2);
+        ski.strokeStyle = "black";
+        ski.stroke();
+    }
+    //Sonne
+    function sonne(_x, _y) {
+        ski.beginPath();
+        ski.arc(_x, _y, 15, 0, 3 * Math.PI);
+        ski.fillStyle = "yellow";
+        ski.fill();
+        ski.strokeStyle = "yellow";
+        ski.stroke();
+    }
+    //-------------ANIMATE-----------------//
     function animate() {
         //ski.clearRect(0,0,800,600);
         ski.putImageData(image, 0, 0);
+        //Schneeflocken
         for (let i = 0; i < arrayX.length; i++) {
             if (arrayY[i] > 600) {
                 arrayY[i] = 0;
@@ -139,7 +187,26 @@ var A3;
             ski.fillStyle = "white";
             ski.fill();
         }
-        window.setTimeout(animate, 30);
+        //Skifahrer
+        for (let i = 0; i < skiX.length; i++) {
+            skiX[i] += 2;
+            skiY[i] += 2;
+            skifahrer(skiX[i], skiY[i]);
+            if (skiX[i] > 800) {
+                skiY[i] = skiOrigY[i];
+                skiX[i] = skiOrigX[i];
+            }
+        }
+        //Sonne
+        for (let i = 0; i < sonneX.length; i++) {
+            if (sonneX[i] > 800) {
+                sonneX[i] = 20;
+            }
+            sonneX[i] += 1;
+            sonneY[i] += 0;
+            sonne(sonneX[i], sonneY[i]);
+        }
+        window.setTimeout(animate, 20);
     }
 })(A3 || (A3 = {}));
 //# sourceMappingURL=Aufgabe3.js.map

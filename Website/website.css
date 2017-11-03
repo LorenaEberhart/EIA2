@@ -1,0 +1,342 @@
+/*
+Aufgabe: Semesteraufgabe - Persönliches Online Portfolio
+Name: Lorena Eberhart
+Matrikel: 256328
+Datum: 19.07.17
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.
+*/
+
+html {
+		font-family: "Alegreya", sans-serif;
+	
+}
+
+header {
+		width: 100%;
+		position: fixed;
+		top: -3%;
+		left: 0.6%;	
+}
+
+header img {
+			width: 32px;
+			position: absolute;
+			top: 28%;
+			left: 2%;
+}
+
+										
+#menu {
+		visibility: hidden;
+		color: #938c8c;
+		font-size: 2em;
+		background-color: #c0b8b8;
+		list-style: none;
+		font-size: 1em;
+		text-align: center;
+		padding-top: 1%;
+		padding-bottom: 1%;
+		margin-bottom: 0%;
+		margin-right: 1.2%;
+
+		}
+		
+			
+
+ul li {
+		display: block;
+		padding-right: 5%;
+}
+
+img {
+		width: 100%;
+}
+
+	
+
+
+
+div {
+		width: 100%;
+	
+}
+
+.BoxLinks {	
+		margin-left: 10%;
+}
+
+#BoxRechts {
+		padding: 3% 29% 10% 20%;
+		margin-right: 10%;
+	
+}
+
+
+h1 {
+		display: inline;
+		position: relative;
+		left: 30%;
+		font-family: "Lemonada", sans-serif;
+		font-size: 2em;
+}
+
+
+h2 {
+	display: inline;
+	position:relative;
+	font-size: 1.9em;
+	left: 10%;
+	font-family: "Lemonada", sans-serif;
+	font-size: 2em;
+	
+}
+
+#Box2 {
+		background-color: #eae7e7;
+}
+
+#Box3 {
+		background-color: #c2beb8
+}
+
+#Ich {
+		position: relative;
+		width: 100%;
+		float: left;
+		margin-left: 2%;	
+		margin-top: 5%;
+		z-index: -1;
+}
+
+
+.BildBox2 {
+			width: 96%;
+			margin: 1% 1% 1% 1%;
+			padding: 1% 1% 1% 1%;
+}
+
+
+
+.BildBox3 {
+			width: 96%;
+			margin: 1% 1% 1% 1%;
+			padding: 1% 1% 1% 1%;
+}
+
+
+a {
+	text-decoration: none;
+	color: #938c8c;
+	
+}
+
+a:hover {
+			background-color: #f29a9a;
+	
+}
+
+
+/*Footer*/
+
+#Box4 {
+		background-color: #939393;
+}
+
+footer p {
+			text-align: center;
+			padding-top: 1%;
+	
+}
+
+
+#hfu {
+		width: 30%;
+		position: relative;
+		left: 50%;
+	
+	}
+
+#facebook {
+			position: relative;
+			width: 8%;
+			left: 42%;
+	
+		}
+
+#instagram {
+			position:relative;
+			width: 8%;
+			left: 43%;
+		}
+									
+
+
+
+/*Tablet Portrait */
+
+@media screen and (min-width:35.625em) {
+										
+
+	
+										#menu {
+												visibility: visible;
+												
+											}
+	
+	
+	
+										ul li {
+												display: inline;
+										}
+										
+	
+										header img {
+													display: none;
+										}
+	
+	
+										h1 {
+											left: 9%;
+										}
+										
+										
+										#Ich {
+										
+											width: 45%;
+											top: 9%;
+											}
+																
+											
+										.BoxLinks {
+												padding-right: 8%;
+												padding-left: 42%;
+												}
+	
+										.BildBox2 {
+										
+												width: 45%;
+											}
+											
+										.BildBox2:hover {
+												transform: scale(1.4);
+	
+}
+
+										.BildBox3 {
+										
+												width: 45%;
+
+												}
+												
+										
+										.BildBox3:hover {
+												transform: scale(1.4);
+												}
+
+	
+	}
+	
+/*Tablet Landscape */
+@media screen and (min-width:48em) {
+	
+									
+	
+									h1 {
+										left: 14%;
+									
+									}
+									
+									#Ich {
+											width: 40%;
+											top: 10%;
+									}
+										
+											
+											
+									.BoxLinks {
+												padding-right: 15%;
+												padding-left: 39%;
+									}
+	
+									.BildBox2 {
+												width: 28%;
+											}
+
+									.BildBox3 {
+												width: 28%;
+												}
+												
+									#hfu {
+											width: 20%;
+											left: 71%
+
+										}
+
+									#facebook {
+												width: 4%;
+												left: 46%;
+									}
+
+									#instagram {
+												width: 4%;
+												left: 47%;
+												}
+									
+
+
+			}
+			
+			
+/* Desktop */
+@media screen and (min-width:64em) {
+
+	
+									h1 {
+										left: 22%;
+									}
+	
+									#Ich {
+											width: 30%;
+											top: 14%;
+
+	
+											}
+											
+									.BoxLinks {
+											padding: 3% 20% 10% 29%;	
+											margin-left: 10%;
+											}
+
+									.BildBox2 {
+												width: 20%;
+											}
+
+									.BildBox3 {
+												width: 20%;
+												}
+
+									main img:nth-child(4n+1) {
+																margin-left:3%;
+	
+																}
+																
+									
+									#hfu {
+											width: 10%;
+											left: 83%
+
+										}
+
+									#facebook {
+												width: 3%;
+									}
+
+									#instagram {
+												width: 3%;
+												}
+									
+	
+
+}

@@ -1,0 +1,86 @@
+/*
+Aufgabe: Semesteraufgabe - Persï¿½nliches Online Portfolio
+Name: Lorena Eberhart
+Matrikel: 256328
+Datum: 19.07.17
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.
+*/
+//Menï¿½
+var i = 0;
+function ausklappen(n) {
+    i += n;
+    if (i > 2) {
+        i = 1;
+    }
+    var node = document.getElementById("menu");
+    if (i == 2) {
+        node.style.visibility = "hidden";
+    }
+    else {
+        node.style.visibility = "visible";
+    }
+}
+//Footer
+function fb() {
+    alert('Auf Anfrage Link zu meinem Profil:)');
+}
+function insta() {
+    alert('Auf Anfrage Link zu meinem Profil:)');
+}
+//Bilder
+var bild1 = {
+    url: "eins.JPG",
+};
+var bild2 = {
+    url: "zwei.JPG",
+};
+var bild3 = {
+    url: "drei.JPG",
+};
+var bild4 = {
+    url: "vier.JPG",
+};
+var bild5 = {
+    url: "fuenf.jpg",
+};
+var bild6 = {
+    url: "sechs.jpg",
+};
+var bild7 = {
+    url: "sieben.jpg",
+};
+var bild8 = {
+    url: "acht.JPG",
+};
+var bild9 = {
+    url: "neun.JPG",
+};
+var bild10 = {
+    url: "zehn.JPG",
+};
+var bild11 = {
+    url: "elf.JPG",
+};
+var bild12 = {
+    url: "zwoelf.JPG",
+};
+/*Hier habe ich ein Array aus dem Interface gebildet*/
+var newArray = [bild1, bild2, bild3, bild4, bild5, bild6, bild7, bild8, bild9, bild10, bild11, bild12];
+/*Diese Funktion erzeugt den HTML Code fï¿½r die Bilder. So kï¿½nnen weitere hinzugefï¿½gt werden*/
+function writeHTML() {
+    var node = document.getElementById("content");
+    var childNodeHTML;
+    var i = 0;
+    while (i < newArray.length) {
+        childNodeHTML = "";
+        childNodeHTML += "<img src='imgs/";
+        childNodeHTML += newArray[i].url;
+        childNodeHTML += "' class='BildBox3'>";
+        node.innerHTML += childNodeHTML;
+        i++;
+    }
+}
+document.addEventListener('DOMContentLoaded', writeHTML);
+//# sourceMappingURL=Aufgabe14.js.map

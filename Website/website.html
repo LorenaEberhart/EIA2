@@ -1,0 +1,140 @@
+
+<!--Aufgabe: Semesteraufgabe - Persönliches Online Portfolio
+Name: Lorena Eberhart
+Matrikel: 256328
+Datum: 19.07.17
+Hiermit versichere ich, dass ich diesen
+Code selbst geschrieben habe. Er wurde
+nicht kopiert und auch nicht diktiert.
+-->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	
+	<title>Lorena Eberhart</title>
+	
+			<link href="https://fonts.googleapis.com/css?family=Alegreya|Lemonada" rel="stylesheet">
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="website.css"> 
+	<script src="website.js">   </script>
+
+</head>
+
+<body>
+
+<!--  Beginn des headers -->
+<header>
+
+	<img src="imgs/menuicon.png" alt="menu" id="hamburger" onclick="ausklappen(1)"> 
+	
+	<nav>
+	
+		<ul id="menu">
+			<li> <a href="#UeberMich">Über mich</a></li>
+			<li> <a href="#Arbeiten">Arbeiten</a></li>
+			<li> <a href="#Fotografie">Fotografie</a></li>
+			<li> <a href="#Kontakt">Kontakt</a></li>
+		
+		</ul>
+	
+	</nav>
+
+</header>
+
+<!-- Beginn main -->
+
+<main>
+
+	<p onload="textTauschen()"> </p>
+	<img src="imgs/nochmal.jpg" alt="Manhattan"> 
+
+<!-- Box1 -->
+	<div>
+		<h1 id="UeberMich">Über mich</h1>
+		
+		<img src="imgs/ich.JPG" id="Ich">
+		
+		<p class="BoxLinks"> 
+		Geboren wurde ich 1996 im schönen Zollernstädtchen Hechingen und lebe seither in Haigerloch. Dort habe ich 2015 am Gymnasium Haigerloch mein Abitur gemacht.
+		Nach meinem Abschluss zog es mich ins Ausland, für 5 Wochen habe ich in Costa Rica Sozialarbeit geleistet und bin anschließend noch für 3 Monate an der Ostküste
+		der USA entlang gereist. Seit Frühjahr 2017 studiere ich an der Hochschule Furtwangen Medienkonzeption. In meiner Freizeit liebe ich es, mich in meinen örtlichen Vereinen zu engagieren und treffe mich oft mit meinen Freunden. Auf jeder
+		meiner Reisen durfte natürlich auch eine spannende Lektüre nicht fehlen. Desweiteren mache ich Musik und tanze gerne.
+		</p>
+
+	</div>
+	
+<!-- Box2 -->
+	<div id="Box2">
+		<h2 id="Arbeiten">Arbeiten</h2>
+
+		<div>
+			<img src="imgs/shop.PNG" class="BildBox2">
+			<img src="imgs/LoE.JPG" class="BildBox2">
+			<img src="imgs/MK.PNG" class="BildBox2">
+			<img src="imgs/mensch.PNG" class="BildBox2">
+
+		</div>
+	</div>
+	
+
+<!-- Box3 -->
+
+	<div id="Box3">
+		<h2 id="Fotografie">Fotografie</h2>
+		
+		<div id="content">
+		<!-- 
+			<img src="imgs/eins.JPG" class="BildBox3">
+			<img src="imgs/zwei.JPG" class="BildBox3">
+			<img src="imgs/drei.JPG" class="BildBox3">
+			<img src="imgs/vier.JPG" class="BildBox3">
+			<img src="imgs/platzhalter.png" class="BildBox3">
+			<img src="imgs/platzhalter.png" class="BildBox3">
+			<img src="imgs/platzhalter.png" class="BildBox3">
+			<img src="imgs/platzhalter.png" class="BildBox3">
+			<img src="imgs/platzhalter.png" class="BildBox3">
+			<img src="imgs/platzhalter.png" class="BildBox3">
+			<img src="imgs/platzhalter.png" class="BildBox3">
+			<img src="imgs/platzhalter.png" class="BildBox3">
+			-->
+		</div>
+	
+	</div>
+
+</main>
+	
+<!-- Beginn footer -->
+
+<footer id="Kontakt">
+	<div id="Box4">
+	
+		<p> Lorena Eberhart<br>
+			Tannwaldstraße 1 <br>
+			72401 Haigerloch
+		</p>
+		
+		<p> lorena-eberhart@web.de </p>
+		
+		<p> © 2017 Lorena Eberhart </p>
+		
+		<img src="imgs/facebook.png" alt="Facebook" id="facebook" onclick=fb()>
+		
+		<img src="imgs/instagram.png" alt="Instagram" id="instagram" onclick=insta()>
+		
+		<a href="http://www.hs-furtwangen.de" target="_blank">
+		<img src="imgs/logo-hfu.png" alt="HFU Logo" id="hfu">	</a>
+	</div>
+	
+</footer>
+
+</body>
+
+
+
+</html>

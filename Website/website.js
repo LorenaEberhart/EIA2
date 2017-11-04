@@ -46,7 +46,7 @@ var bild5 = {
     url: "fuenf.jpg",
 };
 var bild6 = {
-    url: "sechs.jpg",
+    url: "haus.jpg",
 };
 var bild7 = {
     url: "sieben.jpg",
@@ -55,16 +55,16 @@ var bild8 = {
     url: "acht.JPG",
 };
 var bild9 = {
-    url: "neun.JPG",
+    url: "schloss.jpg",
 };
 var bild10 = {
-    url: "zehn.JPG",
+    url: "karussell.JPG",
 };
 var bild11 = {
     url: "elf.JPG",
 };
 var bild12 = {
-    url: "zwoelf.JPG",
+    url: "flur.jpg",
 };
 /*Hier habe ich ein Array aus dem Interface gebildet*/
 var newArray = [bild1, bild2, bild3, bild4, bild5, bild6, bild7, bild8, bild9, bild10, bild11, bild12];

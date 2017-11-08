@@ -31,16 +31,16 @@ function insta() {
 }
 //Bilder
 var bild1 = {
-    url: "eins.JPG",
+    url: "eins.jpg",
 };
 var bild2 = {
-    url: "zwei.JPG",
+    url: "zwei.jpg",
 };
 var bild3 = {
-    url: "drei.JPG",
+    url: "drei.jpg",
 };
 var bild4 = {
-    url: "vier.JPG",
+    url: "vier.jpg",
 };
 var bild5 = {
     url: "fuenf.jpg",
@@ -52,7 +52,7 @@ var bild7 = {
     url: "sieben.jpg",
 };
 var bild8 = {
-    url: "acht.JPG",
+    url: "acht.jpg",
 };
 var bild9 = {
     url: "schloss.jpg",
@@ -61,7 +61,7 @@ var bild10 = {
     url: "karussell.JPG",
 };
 var bild11 = {
-    url: "elf.JPG",
+    url: "elf.jpg",
 };
 var bild12 = {
     url: "flur.jpg",

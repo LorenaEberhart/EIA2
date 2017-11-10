@@ -1,0 +1,53 @@
+/*
+Aufgabe: Aufgabe 4 - Interface: Assoziative Skipiste
+Name: Lorena Eberhart
+Matrikel: 256328
+Datum: 03.11.17
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
+Er wurde nicht kopiert und auch nicht diktiert.
+
+*/
+
+
+
+/*Mobile*/
+
+canvas {
+	width: 100%;
+	
+}
+
+
+/*Portrait*/
+
+@media screen and (min-width:35.625em) {
+	
+canvas{
+
+width: 100%; }}
+
+
+	
+/*Tablet Landscape*/
+
+@media screen and (min-width:48em) {
+
+canvas {
+width: 800px;
+height: 600px; }}
+
+
+
+/*Desktop*/
+
+@media screen and (min-width:64em) {
+
+canvas {
+width: 800px;
+height: 600px; }}
+
+
+
+
+

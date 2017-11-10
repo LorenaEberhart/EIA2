@@ -100,8 +100,8 @@ var A4;
         //Skifahrer
         for (let i = 0; i < 6; i++) {
             fahrer[i] = {
-                x: 270,
-                y: 140,
+                x: 270 + Math.random() * 100,
+                y: 140 + Math.random() * 300,
                 dx: 270 + Math.random() * 100,
                 dy: 140 + Math.random() * 300,
                 color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"

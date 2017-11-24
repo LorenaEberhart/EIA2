@@ -14,9 +14,6 @@ var A6;
     let nSkier = 6;
     let nSun = 1;
     let nSnow = 200;
-    //let skier: SkifahrerInfo[] = [];
-    // let sun: Sonne[] = [];
-    // let snow: Schnee[] = [];
     window.addEventListener("load", piste);
     let image;
     function piste() {
@@ -150,34 +147,6 @@ var A6;
             let s = objects[i];
             s.update();
         }
-        //Schneeflocken
-        /*for (let i: number = 0; i < objects.length; i++) {
-            objects[i].update();
-
-
-        }
-
-
-        //Skifahrer
-
-
-
-
-        for (let i: number = 0; i < objects.length; i++) {
-            objects[i].update();
-
-
-
-
-        }
-
-
-        //Sonne
-
-        for (let i: number = 0; i < objects.length; i++) {
-            objects[i].update();
-        } //Sonne wird gezeichnet und bewegt durch Zugriff auf Objekt Sonne
-*/
         window.setTimeout(animate, 20);
     }
 })(A6 || (A6 = {}));

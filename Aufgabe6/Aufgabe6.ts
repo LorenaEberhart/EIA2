@@ -11,13 +11,11 @@ Er wurde nicht kopiert und auch nicht diktiert.
 namespace A6 {
     export let ski: CanvasRenderingContext2D;
 
-    let objects: MovingObjects[]=[];
-    let nSkier: number= 6;
-    let nSun: number= 1;
-    let nSnow: number= 200;
-    //let skier: SkifahrerInfo[] = [];
-   // let sun: Sonne[] = [];
-   // let snow: Schnee[] = [];
+    let objects: MovingObjects[] = [];
+    let nSkier: number = 6;
+    let nSun: number = 1;
+    let nSnow: number = 200;
+
 
 
     window.addEventListener("load", piste);
@@ -27,7 +25,7 @@ namespace A6 {
 
     function piste(): void {
 
-      
+
 
 
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -201,43 +199,11 @@ namespace A6 {
         //ski.clearRect(0,0,800,600);
         ski.putImageData(image, 0, 0);
 
-        for (let i=0; i<objects.length;i++) {
-              let s: MovingObjects=objects[i];
-              s.update();
-             }
-        
-        
-        
-        
-        //Schneeflocken
-
-        /*for (let i: number = 0; i < objects.length; i++) {
-            objects[i].update();
-
-
+        for (let i = 0; i < objects.length; i++) {
+            let s: MovingObjects = objects[i];
+            s.update();
         }
 
-
-        //Skifahrer
-
-
-
-
-        for (let i: number = 0; i < objects.length; i++) {
-            objects[i].update();
-
-
-
-
-        }
-
-
-        //Sonne
-
-        for (let i: number = 0; i < objects.length; i++) {
-            objects[i].update();
-        } //Sonne wird gezeichnet und bewegt durch Zugriff auf Objekt Sonne
-*/
 
 
 

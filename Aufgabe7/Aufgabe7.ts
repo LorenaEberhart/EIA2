@@ -49,7 +49,7 @@ namespace StudiVZ {
             name: DatenArray[1],
             vorname: DatenArray[2],
             alter: parseInt(DatenArray[3]),
-            geschlecht: parseInt(DatenArray[4]) == 0,    //wenn eine 0 eingegeben wird, wird sie in eine Zahl umgewandelt sie später verarbeitet werden kann
+            geschlecht: parseInt(DatenArray[4]) == 0,    //wenn eine 0 eingegeben wird, wird sie in eine Zahl umgewandelt sie später verarbeitet werden kann; == ist ein Vergleichsoperator
             kommentar: DatenArray[5],
         };
         

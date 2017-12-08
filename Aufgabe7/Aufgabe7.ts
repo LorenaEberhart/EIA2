@@ -45,7 +45,7 @@ namespace StudiVZ {
         let DatenArray: string[] = _input.split(","); //String wird unterteilt in Substrings, die durch Kommas getrennt sind
 
         let studentData: StudentData = { //Objekt vom Interface wird erstellt 
-            matrikelnummer: parseInt(DatenArray[0]),    //parseInt wandelt strinf in number um
+            matrikelnummer: parseInt(DatenArray[0]),    //parseInt wandelt string in number um
             name: DatenArray[1],
             vorname: DatenArray[2],
             alter: parseInt(DatenArray[3]),

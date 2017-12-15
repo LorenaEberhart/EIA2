@@ -23,7 +23,7 @@ var A9;
         }
         drawBrief();
     }
-    //Farbe ändern beim Klicken
+    //Farbe ändern beim Klicken und Buchstaben auswählen
     function handleClick(_event) {
         let klicken = _event.target;
         klicken.style.color = "white";
@@ -51,6 +51,7 @@ var A9;
         div.addEventListener("click", handleClick);
         document.body.appendChild(div);
     }
+    //Brief zeichnen
     function drawBrief() {
         let letter = document.createElement("div");
         letter.style.backgroundColor = "lightgrey";
@@ -61,7 +62,7 @@ var A9;
         letter.addEventListener("click", setLetters);
         document.body.appendChild(letter);
     }
-    //Brief zeichnen
+    //Buchstaben in Brief einfügen
     function setLetters(_event) {
         let box = document.createElement("div");
         box.innerText = currentLetter;

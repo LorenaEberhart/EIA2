@@ -32,7 +32,8 @@ namespace A9 {
         drawBrief();
 
     }
-           //Farbe ändern beim Klicken
+    
+     //Farbe ändern beim Klicken und Buchstaben auswählen
     function handleClick(_event: MouseEvent): void {
 
             let klicken: HTMLDivElement = <HTMLDivElement>_event.target;
@@ -73,7 +74,7 @@ namespace A9 {
 
     }
 
-    
+    //Brief zeichnen
        function drawBrief(): void {
 
 
@@ -94,7 +95,7 @@ namespace A9 {
     }
 
     
-//Brief zeichnen
+    //Buchstaben in Brief einfügen
     function setLetters(_event: MouseEvent): void {
 
         let box: HTMLDivElement = document.createElement("div");

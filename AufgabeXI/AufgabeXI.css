@@ -1,0 +1,46 @@
+/*
+Aufgabe: Aufgabe 11 - ClientServer: GET und Ajax
+Name: Lorena Eberhart
+Matrikel: 256328
+Datum: 14.01.18
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
+Er wurde nicht kopiert und auch nicht diktiert.
+
+*/
+* {
+	display: inline;
+}
+
+fieldset {
+	width: 500px;
+	height: 200px;
+}
+
+
+input:invalid {
+	background: #5c9965;
+}
+input:valid {
+	background: white;
+}
+
+input[type="radio"], input[type="checkbox"],input[type="text"] {
+	display: block;
+
+}
+button {
+	background-color: lightblue;
+}
+
+input [type="number"] {
+	float: right; ;
+}
+
+#baumarten, #baumkerzen, #adresse {
+	background-color: #d27b7b;
+}
+
+#halterung, #baumschmuck, #lieferung {
+	background-color: #5c9965; 
+}

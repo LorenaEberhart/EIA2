@@ -8,8 +8,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert.
 
 */
-var A10;
-(function (A10) {
+var A10_Neu;
+(function (A10_Neu) {
     window.addEventListener("load", init);
     var name;
     var vorname;
@@ -17,6 +17,7 @@ var A10;
     var nr;
     var stadt;
     var plz;
+    var korb = document.createElement("div");
     //Anlegen von Baumarten
     let tanne = {
         name: "Tanne",
@@ -87,10 +88,11 @@ var A10;
             radioButton.type = "radio";
             radioButton.name = "Radiogroup";
             radioButton.value = baum[i].name;
-            radioButton.id = baum[i].name;
+            radioButton.id = "radioButton";
             let label = document.createElement("label");
             label.htmlFor = baum[i].name;
             label.innerText = " " + baum[i].name + " " + baum[i].preis + "€";
+            baumFieldS.addEventListener("change", handleChange);
             baumFieldS.appendChild(radioButton);
             baumFieldS.appendChild(label);
         }
@@ -230,25 +232,22 @@ var A10;
             }
         }
         //Warenkorb
-        /* console.log("Init");
-         let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
- 
-         for (let i: number = 0; i < fieldsets.length; i++) {
-             let fieldset: HTMLFieldSetElement = fieldsets[i];
-             fieldset.addEventListener("change", handleChange);
-         }
-      }
-         
-      function handleChange(_event: Event): void {
-         
-         let target: HTMLInputElement = <HTMLInputElement>_event.target;
-         console.log("Changed " + target.name + " to " + target.value);
-          
-         
-        
-         if (this.id == "checkboxSchmuck")
-             console.log("Changed " + target.name + " to " + target.checked);
-          }*/
+        korb.style.display = "inline-block";
+        korb.style.position = "absolute";
+        korb.style.right = "10px";
+        korb.style.top = "10px";
+        korb.style.width = "500px";
+        korb.style.height = "500px";
+        korb.style.backgroundColor = "lightblue";
+        korb.style.paddingTop = "40px";
+        korb.style.paddingLeft = "10px";
+        document.getElementById("prüfung").appendChild(korb);
+        function handleChange(_event) {
+            let target = _event.target;
+            if (this.id == "radioButton") {
+                console.log("Changed " + target.name + " to " + target.checked);
+            }
+        }
     }
-})(A10 || (A10 = {}));
+})(A10_Neu || (A10_Neu = {}));
 //# sourceMappingURL=AufgabeX.js.map

@@ -9,7 +9,7 @@ Er wurde nicht kopiert und auch nicht diktiert.
 
 */
 
-namespace A10 {
+namespace A10_Neu {
     window.addEventListener("load", init);
     
     var name: HTMLInputElement;
@@ -18,6 +18,7 @@ namespace A10 {
     var nr: HTMLInputElement;
     var stadt: HTMLInputElement;
     var plz: HTMLInputElement;
+    var korb: HTMLDivElement = document.createElement("div");
     
     //Anlegen eines Interface für die verschiedenen Produkte
     interface Produkte {
@@ -126,12 +127,13 @@ namespace A10 {
             radioButton.type="radio";
             radioButton.name="Radiogroup";
             radioButton.value= baum[i].name;
-            radioButton.id=baum[i].name;
+            radioButton.id="radioButton";
             
             let label: HTMLLabelElement= <HTMLLabelElement>document.createElement("label");
             label.htmlFor = baum[i].name;
             label.innerText=" " + baum[i].name+ " " + baum[i].preis + "€";
             
+            baumFieldS.addEventListener("change", handleChange);
             baumFieldS.appendChild(radioButton);
             baumFieldS.appendChild(label);
             }
@@ -271,7 +273,7 @@ namespace A10 {
         //Lieferoptionen
         let lieferung: Lieferung []= [standard,express,abhol];
         
-        for (let i: number=0; i<lieferung.length; i++) {
+        for (let i: number=0; i<lieferung.length; i++) {            //i< laufzeitkriterium oder Abbruchkriterium
          let lieferSelect: HTMLSelectElement= <HTMLSelectElement> document.getElementById("lieferung");
         
         let liefer: HTMLOptionElement= <HTMLOptionElement> document.createElement("option");
@@ -310,28 +312,25 @@ namespace A10 {
     }
         
         //Warenkorb
-       
         
-        
-        
-       /* console.log("Init");
-        let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
 
-        for (let i: number = 0; i < fieldsets.length; i++) {
-            let fieldset: HTMLFieldSetElement = fieldsets[i];
-            fieldset.addEventListener("change", handleChange);
-        }
-     }
-        
-     function handleChange(_event: Event): void {
-        
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;
-        console.log("Changed " + target.name + " to " + target.value);
-         
+       
         
        
-        if (this.id == "checkboxSchmuck")
-            console.log("Changed " + target.name + " to " + target.checked);
-         }*/
+        function handleChange (_event: Event): void {
+           
+         let target: HTMLInputElement = <HTMLInputElement>_event.target;
+
+        console.log("Changed " + target.name + " to " + target.value);
+
+        if (target.name == "Radiogroup") {
+            let currentTree: string = target.id;
+            let currentPrice: string = target.value;
+            baum[0]= currentTree;
+            baum[1]= currentPrice;
+            console.log(baum);
+        }
+}
+      
  }
     }

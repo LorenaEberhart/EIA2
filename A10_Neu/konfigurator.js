@@ -1,18 +1,18 @@
 var A10_Neu;
 (function (A10_Neu) {
-    window.addEventListener("load", init);
-    //AuswahlBoxen
+    window.addEventListener("load", init); // hört auf load wenn seite geladen ist wird init ausgeführt
+    //Select ELemente
     let baumtyp = document.createElement("select");
     let halterungtyp = document.createElement("select"); //Selekt Boxen erstellen
     let lieferungtyp = document.createElement("select");
     var warenkorb = document.createElement("div"); //Warenkorb Div erstellen
-    //Persönlich
+    //Persönlich        InputElemente
     let contactName = document.createElement("input");
     let contactVorname = document.createElement("input");
     let contactMail = document.createElement("input"); //Texteingabefelder erstellen
     let contactAdress = document.createElement("input");
     let contactPlz = document.createElement("input");
-    //Button
+    //Div ELement für Ausgabe Text bei Button klick
     let prufen = document.createElement("div");
     //All die erstellen Elemente werden später im Code mit Eigenschaften ausgestattet und ans DOM gehängt
     var gesamtpreis = 0; //Festlegen einer Gesamtpreis Variable, damit diese überall im Dokument aufrufbar ist
@@ -36,13 +36,13 @@ var A10_Neu;
         warenkorb.style.paddingLeft = "10px";
         document.getElementById("korbid").appendChild(warenkorb); //Warenkorb (korb) an DOM anhängen
         //-----------------------Baum Definieren und Anhängen-------------------------------------//        
-        baumtyp.addEventListener("change", AuswahlAuslesen); //oben erstellten baumtyp vararbeiten
-        document.getElementById("baumtyp").appendChild(baumtyp);
+        baumtyp.addEventListener("change", AuswahlAuslesen); //wenn sich etwas ändert dann wird die funktion auswahlauslesen gestartet
+        document.getElementById("baumtyp").appendChild(baumtyp); //Select ELement wird angehängt/gezeichnet
         for (let i = 0; i < A10_Neu.baumdaten.length; i++) {
-            let option = document.createElement("option");
-            option.innerText = A10_Neu.baumdaten[i].name;
-            baumtyp.id = A10_Neu.baumdaten[i].element; //Typ bzw ID Des Elements zuweisen, siehe Daten.ts; Wird später im Warenkorb gebraucht um zu prüfen ob Objekt schon vorhanden ist
-            baumtyp.appendChild(option);
+            let option = document.createElement("option"); // drop down menu optionen werden erstellt
+            option.innerText = A10_Neu.baumdaten[i].name; //Beschriftung durch einzeln durchgegangene Baumnamen
+            baumtyp.id = A10_Neu.baumdaten[i].element; //baumtyp bekommt id --> also der element name
+            baumtyp.appendChild(option); //optionen werden an Select Elemet angehängt
         }
         //----------------------------Halterungen Selektor-----------------------------//          
         halterungtyp.addEventListener("change", AuswahlAuslesen);
@@ -53,11 +53,11 @@ var A10_Neu;
             halterungtyp.id = A10_Neu.halterungdaten[i].element; //Typ bzw ID Des Elements zuweisen, siehe Daten.ts
             halterungtyp.appendChild(option);
         }
-        //------------------------------Kugel Selektor-------------------------------------//       
+        //------------------------------Schmuck Selektor-------------------------------------//       
         for (let i = 0; i < A10_Neu.schmuckdaten.length; i++) {
-            let schmucktyp = document.createElement("input");
+            let schmucktyp = document.createElement("input"); //Input Element wird erstellt
             schmucktyp.type = "checkbox"; //Macht es zur Checkbox
-            schmucktyp.id = A10_Neu.schmuckdaten[i].element;
+            schmucktyp.id = A10_Neu.schmuckdaten[i].element; //jeder Typ bekommt andere ID da elemente andere namen haben
             schmucktyp.addEventListener("change", function () {
                 schmuckAuslesen(schmucktyp, "0"); //Werte übergeben; in kugeltyp ist alles enthalten
             });
@@ -66,16 +66,16 @@ var A10_Neu;
             let schmucklabel = document.createElement("label");
             schmucklabel.innerText = A10_Neu.schmuckdaten[i].name;
             document.getElementById("kugeln").appendChild(schmucklabel);
-            //Anzahl Selektor
-            let schmuckanzahl = document.createElement("input");
+            //Anzahl Stepper
+            let schmuckanzahl = document.createElement("input"); //Stepper wird erstellt
             schmuckanzahl.type = "number"; //Macht es zum NummerHochZählFeld
             schmuckanzahl.step = "1";
             schmuckanzahl.min = "0";
             schmuckanzahl.value = "0";
             schmuckanzahl.style.marginRight = "1.5em";
             schmuckanzahl.addEventListener("change", function () {
-                schmucktyp.checked = true; //Chekbox Anhaken wenn wert geändert wird
-                schmuckAuslesen(schmucktyp, schmuckanzahl.value);
+                schmucktyp.checked = true; //Chekbox wird angehakt wenn man im stepper hochklickt
+                schmuckAuslesen(schmucktyp, schmuckanzahl.value); //value ändert sich beim hochzählen
             });
             document.getElementById("kugeln").appendChild(schmuckanzahl);
         }
@@ -117,7 +117,7 @@ var A10_Neu;
         //---------------------------Persönliche Daten Eingeben----------------------//
         contactName.type = "text";
         contactName.placeholder = "Name";
-        contactName.required = true;
+        contactName.required = true; //ist true wenn was eingegeben werden ist, prüft nachher ob was drin steht oder nicht
         contactName.style.marginRight = "1em";
         document.getElementById("persdaten").appendChild(contactName);
         contactVorname.type = "text";
@@ -148,10 +148,11 @@ var A10_Neu;
         button.style.backgroundColor = "lightblue";
         document.getElementById("prufenbutton").appendChild(button);
     }
-    //--------------------------------Kugel Change-----------------------------------------------//
+    //--------------------------------Schmuck Change-----------------------------------------------//
     function schmuckAuslesen(chkElement, anzahl) {
         for (let i = 0; i < A10_Neu.schmuckdaten.length; i++) {
             if (A10_Neu.schmuckdaten[i].element == chkElement.id) {
+                //das was angeklickt wurde ist dasselbe wie das element welches im moment bei der schleife durchlaufen wurde dann wird es in den warenkorb hinzugefügt
                 Warenkorb(chkElement.id, A10_Neu.schmuckdaten[i].name, A10_Neu.schmuckdaten[i].preis, parseInt(anzahl), chkElement.checked);
             }
         }
@@ -203,26 +204,26 @@ var A10_Neu;
         //Wird erst bei zweitem Durchgang ausgeführt, zu Beginn keine Elemente in Korb vorhanden
         for (let i = 0; i < warenkorb.getElementsByTagName("p").length; i++) {
             if (warenkorb.getElementsByTagName("p")[i].id == elementId) {
-                var innerPreis = warenkorb.getElementsByTagName("p")[i].innerText.split("=")[1]; //Preis extrahieren
-                warenkorb.getElementsByTagName("p")[i].remove(); //Wenn vorhanden Element löschen
-                gesamtpreis = gesamtpreis - parseInt(innerPreis); //Gesamtpreis bereinigen
+                var innerPreis = warenkorb.getElementsByTagName("p")[i].innerText.split("=")[1]; //nach dem preis wird paragraph gesplittet der name des paragraph ist 0, der preis ist 1 daher hat man hier nur noch den preis
+                warenkorb.getElementsByTagName("p")[i].remove(); //Wenn vorhanden Element löschen --> komplettes p wird gelöscht
+                gesamtpreis = gesamtpreis - parseInt(innerPreis); //p wird zur zahl gemacht, preis wird bereinigt indem alte zahl gelöscht wird
             }
             //Gesamtpreis p entfernen um später aktualisiert zurück einzufügen
             if (warenkorb.getElementsByTagName("p")[i].id == "gesamtpreisid") {
-                warenkorb.getElementsByTagName("p")[i].remove();
+                warenkorb.getElementsByTagName("p")[i].remove(); //p vom gesamtpreis wird gelöscht weil etwas geändert wird 
             }
         }
         if (selected) {
-            var p = document.createElement("p");
-            p.id = elementId;
-            p.innerText = value + "  = " + preisElement + "€";
+            var p = document.createElement("p"); //dann wird ein paragraph element erzuegt
+            p.id = elementId; //die id des auswewhlten objetes ist die id des p  --> also gleiche id
+            p.innerText = value + "  = " + preisElement + "€"; //value ist elementname also zb. kerze =  berechneter gesamtpreis wird hinzugefügt 
             gesamtpreis = gesamtpreis + preisElement; //Gesamtpreis erhöhen
             warenkorb.appendChild(p);
         }
         //Gesamtpreis wieder hinzufügen
         var pGesamt = document.createElement("p");
         pGesamt.id = "gesamtpreisid";
-        pGesamt.innerText = "Gesamtpreis =  " + gesamtpreis + "€";
+        pGesamt.innerText = "Gesamtpreis =  " + gesamtpreis + "€"; //alles zusammen gerechnet wird hier als inntertext erzeugt
         pGesamt.style.position = "absolute";
         pGesamt.style.bottom = "0";
         pGesamt.style.paddingTop = "10px";

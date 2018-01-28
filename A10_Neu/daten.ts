@@ -1,7 +1,7 @@
 namespace A10_Neu {
 
-export interface Daten {
-    element: string;
+export interface Daten {        //Interface anlegen, welches in konfigurator exportiert werden kann
+    element: string;            // anlegen um zu wissen was es ist
     name: string;
     preis: number;
 }
@@ -14,7 +14,7 @@ export let baumdaten: Daten[] = [ //multidimensionales heterogenes Array
     {element: "baum", name: "Tanne", preis: 10}
 ];
    
-export let halterungdaten: Daten[] = [
+export let halterungdaten: Daten[] = [                      //gleicher element namen weil radiobutton
     {element: "halterung", name: "", preis: 0},
     {element: "halterung", name: "Grün", preis: 15},
     {element: "halterung", name: "Rot", preis: 25},

@@ -19,7 +19,7 @@ fieldset {
 
 
 input:invalid {
-	background: #5c9965;
+	background: lightblue;
 }
 input:valid {
 	background: white;
@@ -38,9 +38,9 @@ input [type="number"] {
 }
 
 #baumarten, #baumkerzen, #adresse {
-	background-color: #d27b7b;
+	background-color: #b6b6ce;
 }
 
 #halterung, #baumschmuck, #lieferung {
-	background-color: #5c9965; 
+	background-color: lavender; 
 }

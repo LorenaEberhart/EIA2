@@ -133,7 +133,7 @@ namespace A10_Neu {
             label.htmlFor = baum[i].name;
             label.innerText=" " + baum[i].name+ " " + baum[i].preis + "€";
             
-            baumFieldS.addEventListener("change", handleChange);
+       //     baumFieldS.addEventListener("change", handleChange);
             baumFieldS.appendChild(radioButton);
             baumFieldS.appendChild(label);
             }
@@ -317,7 +317,7 @@ namespace A10_Neu {
        
         
        
-        function handleChange (_event: Event): void {
+    /*    function handleChange (_event: Event): void {
            
          let target: HTMLInputElement = <HTMLInputElement>_event.target;
 
@@ -326,11 +326,27 @@ namespace A10_Neu {
         if (target.name == "Radiogroup") {
             let currentTree: string = target.id;
             let currentPrice: string = target.value;
-            baum[0]= currentTree;
-            baum[1]= currentPrice;
+            baum[0].name= currentTree;
+            baum[0].preis= currentPrice;
             console.log(baum);
         }
+            
+            
+         if (target.name == "Halterungen") {
+            let currentTree: string = target.id;
+            let currentPrice: string = target.value;
+            halt[0].name = currentTree;
+            halt[0].preis = currentPrice;
+            console.log(halt);
+        }
+     
+        let gesamt:number= baum.target.preis + halt.target.preis 
+        
+      
+
+
 }
+        */
       
  }
     }

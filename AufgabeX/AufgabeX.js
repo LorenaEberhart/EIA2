@@ -92,7 +92,7 @@ var A10_Neu;
             let label = document.createElement("label");
             label.htmlFor = baum[i].name;
             label.innerText = " " + baum[i].name + " " + baum[i].preis + "€";
-            baumFieldS.addEventListener("change", handleChange);
+            //     baumFieldS.addEventListener("change", handleChange);
             baumFieldS.appendChild(radioButton);
             baumFieldS.appendChild(label);
         }
@@ -232,22 +232,36 @@ var A10_Neu;
             }
         }
         //Warenkorb
-        korb.style.display = "inline-block";
-        korb.style.position = "absolute";
-        korb.style.right = "10px";
-        korb.style.top = "10px";
-        korb.style.width = "500px";
-        korb.style.height = "500px";
-        korb.style.backgroundColor = "lightblue";
-        korb.style.paddingTop = "40px";
-        korb.style.paddingLeft = "10px";
-        document.getElementById("prüfung").appendChild(korb);
-        function handleChange(_event) {
-            let target = _event.target;
-            if (this.id == "radioButton") {
-                console.log("Changed " + target.name + " to " + target.checked);
+        /*    function handleChange (_event: Event): void {
+               
+             let target: HTMLInputElement = <HTMLInputElement>_event.target;
+    
+            console.log("Changed " + target.name + " to " + target.value);
+    
+            if (target.name == "Radiogroup") {
+                let currentTree: string = target.id;
+                let currentPrice: string = target.value;
+                baum[0].name= currentTree;
+                baum[0].preis= currentPrice;
+                console.log(baum);
             }
-        }
+                
+                
+             if (target.name == "Halterungen") {
+                let currentTree: string = target.id;
+                let currentPrice: string = target.value;
+                halt[0].name = currentTree;
+                halt[0].preis = currentPrice;
+                console.log(halt);
+            }
+         
+            let gesamt:number= baum.target.preis + halt.target.preis
+            
+          
+    
+    
+    }
+            */
     }
 })(A10_Neu || (A10_Neu = {}));
 //# sourceMappingURL=AufgabeX.js.map

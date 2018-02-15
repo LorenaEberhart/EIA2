@@ -10,10 +10,13 @@ Er wurde nicht kopiert und auch nicht diktiert.
 */
 var Abschluss;
 (function (Abschluss) {
-    window.addEventListener("load", horizont);
+    window.addEventListener("load", init);
+    let currentFlag;
+    let friends;
     let flags = [];
     let nflagge = 1;
-    function horizont() {
+    //---------------------------Flaggen positionieren----------------------//
+    function init() {
         var canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         Abschluss.crc2 = canvas.getContext("2d");
@@ -42,12 +45,41 @@ var Abschluss;
         Abschluss.crc2.fillStyle = "lightgrey";
         Abschluss.crc2.fillRect(0, 0, 800, 600);
         drawFlags();
+        document.getElementById("Germany").addEventListener("click", handleClick);
+        document.getElementById("Columbia").addEventListener("click", handleClick);
+        document.getElementById("Japan").addEventListener("click", handleClick);
+        document.getElementById("CostaRica").addEventListener("click", handleClick);
+        document.getElementById("Gambia").addEventListener("click", handleClick);
     }
     function drawFlags() {
         for (let i = 0; i < flags.length; i++) {
             let fA = flags[i];
             fA.update();
         }
+    }
+    function drawDiv(_flags) {
+        let div = document.createElement("div");
+        div.id = _flags;
+        div.addEventListener("click", handleClick);
+        document.body.appendChild(div);
+    }
+    //--------------Events------------------------------//
+    function handleClick(_event) {
+        let click = _event.target;
+        click.style.borderStyle = "solid";
+        click.style.borderColor = "yellow";
+        currentFlag = click.id;
+        let divlistFlag = document.getElementsByClassName("flags");
+        for (let i = 0; i < divlistFlag.length; i++) {
+            if (currentFlag != divlistFlag[i].id) {
+                divlistFlag[i].style.borderColor = "red";
+            }
+        }
+    }
+    function handleFlags(_event) {
+        let click = _event.target;
+        click.style.borderStyle = "solid";
+        click.style.borderColor = "yellow";
     }
 })(Abschluss || (Abschluss = {}));
 //# sourceMappingURL=Main.js.map

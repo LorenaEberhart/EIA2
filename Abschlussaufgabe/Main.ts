@@ -10,7 +10,10 @@ Er wurde nicht kopiert und auch nicht diktiert.
 */
 
 namespace Abschluss {
-     window.addEventListener("load", horizont);
+     window.addEventListener("load", init);
+    
+    let currentFlag: string;
+    let friends: string;
     
     
     export let crc2: CanvasRenderingContext2D;
@@ -19,9 +22,9 @@ namespace Abschluss {
     let nflagge: number= 1;
 
    
+    //---------------------------Flaggen positionieren----------------------//
     
-    
-    function horizont(): void {
+    function init(): void {
     var canvas: HTMLCanvasElement = document.getElementsByTagName("canvas") [0];
     console.log(canvas);
     
@@ -62,6 +65,13 @@ namespace Abschluss {
         
         
         drawFlags();
+        
+        document.getElementById("Germany").addEventListener("click", handleClick);
+        document.getElementById("Columbia").addEventListener("click", handleClick);
+        document.getElementById("Japan").addEventListener("click", handleClick);
+        document.getElementById("CostaRica").addEventListener("click", handleClick);
+        document.getElementById("Gambia").addEventListener("click", handleClick);
+        
      
         
   }
@@ -71,7 +81,48 @@ namespace Abschluss {
          for (let i: number = 0; i < flags.length; i++) {
             let fA: FlagsArray = flags[i];
             fA.update();
+             
+             
              }
+        }
+    
+    function drawDiv(_flags: string): void {
+        
+        let div: HTMLDivElement= document.createElement("div");
+        
+        div.id= _flags;
+        
+        div.addEventListener("click", handleClick);
+        document.body.appendChild(div);
+        
+        }
+    
+    //--------------Events------------------------------//
+    
+    function handleClick(_event: MouseEvent): void {
+        
+        let click: HTMLDivElement = <HTMLDivElement>_event.target;
+        click.style.borderStyle= "solid";
+        click.style.borderColor= "yellow";
+        
+        currentFlag= click.id
+        
+       let divlistFlag: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("flags");
+
+        for (let i: number = 0; i < divlistFlag.length; i++) {
+            if (currentFlag != divlistFlag[i].id) {
+                divlistFlag[i].style.borderColor = "red";
+            }
+        }
+        
+        
+        }
+    
+    function handleFlags(_event: MouseEvent): void {
+        
+        let click: HTMLDivElement = <HTMLDivElement>_event.target;
+        click.style.borderStyle= "solid";
+        click.style.borderColor= "yellow";
         }
     
     }

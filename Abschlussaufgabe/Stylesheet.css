@@ -8,3 +8,48 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert.
 
 */
+
+#Columbia {
+	position: absolute;
+	top: 7.2vw;
+	left: 2vw;
+	width: 14%;
+	height: 10.5vw;
+	float: left;
+}
+
+#CostaRica {
+	position: absolute;
+	top: 34.9vw;
+	left: 2vw;
+	width: 14%;
+	height: 10.5vw;
+	float: left;
+}
+
+#Gambia {
+	position: absolute;
+	top: 34.9vw;
+	left: 40.2vw;
+	width: 14%;
+	height: 10.5vw;
+	float: left;
+}
+
+#Japan {
+	position: absolute;
+	top: 7.2vw;
+	left: 40.2vw;
+	width: 14%;
+	height: 10.5vw;
+	float: left;
+}
+
+#Germany {
+	position: absolute;
+	top: 21vw;
+	left: 21.1vw;
+	width: 14%;
+	height: 10.5vw;
+	float: left;
+}

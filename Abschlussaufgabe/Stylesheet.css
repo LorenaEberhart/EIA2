@@ -9,6 +9,12 @@ Er wurde nicht kopiert und auch nicht diktiert.
 
 */
 
+canvas {
+	
+	width: 50%;
+	height: auto;
+}
+
 #Columbia {
 	position: absolute;
 	top: 7.2vw;

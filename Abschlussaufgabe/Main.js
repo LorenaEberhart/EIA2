@@ -44,24 +44,32 @@ var Abschluss;
         //Hintergrund
         Abschluss.crc2.fillStyle = "lightgrey";
         Abschluss.crc2.fillRect(0, 0, 800, 600);
+        let fahnen = ["Germany", "Columbia", "Japan", "CostaRica", "Gambia"];
+        let anzahl = fahnen.length;
+        if (anzahl == fahnen.length) {
+            for (let i; i < fahnen.length; i++) {
+                drawDiv(fahnen[i]);
+            }
+        }
         drawFlags();
-        document.getElementById("Germany").addEventListener("click", handleClick);
-        document.getElementById("Columbia").addEventListener("click", handleClick);
-        document.getElementById("Japan").addEventListener("click", handleClick);
-        document.getElementById("CostaRica").addEventListener("click", handleClick);
-        document.getElementById("Gambia").addEventListener("click", handleClick);
+        // document.getElementById("Columbia").addEventListener("click", handleClick);
+        //  document.getElementById("Japan").addEventListener("click", handleClick);
+        //  document.getElementById("CostaRica").addEventListener("click", handleClick);
+        //  document.getElementById("Gambia").addEventListener("click", handleClick);
     }
     function drawFlags() {
         for (let i = 0; i < flags.length; i++) {
             let fA = flags[i];
             fA.update();
+            document.addEventListener("click", handleClick);
         }
     }
     function drawDiv(_flags) {
         let div = document.createElement("div");
         div.id = _flags;
-        div.addEventListener("click", handleClick);
-        document.body.appendChild(div);
+        div.className = "flaggen";
+        div.addEventListener("click", handleClickTwo);
+        document.getElementById("Germany").appendChild(div);
     }
     //--------------Events------------------------------//
     function handleClick(_event) {
@@ -69,17 +77,19 @@ var Abschluss;
         click.style.borderStyle = "solid";
         click.style.borderColor = "yellow";
         currentFlag = click.id;
-        let divlistFlag = document.getElementsByClassName("flags");
+        let divlistFlag = document.getElementsByClassName("flaggen");
         for (let i = 0; i < divlistFlag.length; i++) {
             if (currentFlag != divlistFlag[i].id) {
                 divlistFlag[i].style.borderColor = "red";
             }
         }
     }
-    function handleFlags(_event) {
+    function handleClickTwo(_event) {
         let click = _event.target;
-        click.style.borderStyle = "solid";
-        click.style.borderColor = "yellow";
+        friends = click.id;
+        if (currentFlag == "Germany" && currentFlag == "Japan") {
+            alert("Du hast eine Freundschaft zwischen Japan und Deutschland aufgebaut");
+        }
     }
 })(Abschluss || (Abschluss = {}));
 //# sourceMappingURL=Main.js.map

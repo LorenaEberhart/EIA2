@@ -11,7 +11,8 @@ Er wurde nicht kopiert und auch nicht diktiert.
 var Abschluss;
 (function (Abschluss) {
     window.addEventListener("load", init);
-    let currentFlag;
+    let currentFlagOne;
+    let currentFlagTwo;
     let friends;
     let flags = [];
     let nflagge = 1;
@@ -44,11 +45,18 @@ var Abschluss;
         //Hintergrund
         Abschluss.crc2.fillStyle = "lightgrey";
         Abschluss.crc2.fillRect(0, 0, 800, 600);
-        let fahnen = ["Germany", "Columbia", "Japan", "CostaRica", "Gambia"];
-        let anzahl = fahnen.length;
-        if (anzahl == fahnen.length) {
-            for (let i; i < fahnen.length; i++) {
-                drawDiv(fahnen[i]);
+        let fahnenOne = ["Germany", "Columbia", "Japan", "CostaRica", "Gambia"];
+        let fahnenTwo = ["Germany", "Columbia", "Japan", "CostaRica", "Gambia"];
+        let anzahlOne = fahnenOne.length;
+        let anzahlTwo = fahnenTwo.length;
+        if (anzahlOne == fahnenOne.length) {
+            for (let i = 0; i < fahnenOne.length; i++) {
+                drawDiv(fahnenOne[i]);
+            }
+        }
+        if (anzahlTwo == fahnenTwo.length) {
+            for (let i = 0; i < fahnenTwo.length; i++) {
+                drawDiv(fahnenTwo[i]);
             }
         }
         drawFlags();
@@ -61,25 +69,24 @@ var Abschluss;
         for (let i = 0; i < flags.length; i++) {
             let fA = flags[i];
             fA.update();
-            document.addEventListener("click", handleClick);
         }
     }
     function drawDiv(_flags) {
         let div = document.createElement("div");
         div.id = _flags;
         div.className = "flaggen";
-        div.addEventListener("click", handleClickTwo);
-        document.getElementById("Germany").appendChild(div);
+        div.addEventListener("click", handleClick);
+        document.body.appendChild(div);
     }
     //--------------Events------------------------------//
     function handleClick(_event) {
         let click = _event.target;
         click.style.borderStyle = "solid";
         click.style.borderColor = "yellow";
-        currentFlag = click.id;
+        currentFlagOne = click.id;
         let divlistFlag = document.getElementsByClassName("flaggen");
         for (let i = 0; i < divlistFlag.length; i++) {
-            if (currentFlag != divlistFlag[i].id) {
+            if (currentFlagOne != divlistFlag[i].id) {
                 divlistFlag[i].style.borderColor = "red";
             }
         }
@@ -87,7 +94,7 @@ var Abschluss;
     function handleClickTwo(_event) {
         let click = _event.target;
         friends = click.id;
-        if (currentFlag == "Germany" && currentFlag == "Japan") {
+        if (currentFlagOne == "Germany" && currentFlagOne == "Japan") {
             alert("Du hast eine Freundschaft zwischen Japan und Deutschland aufgebaut");
         }
     }

@@ -12,7 +12,8 @@ Er wurde nicht kopiert und auch nicht diktiert.
 namespace Abschluss {
      window.addEventListener("load", init);
     
-    let currentFlag: string;
+    let currentFlagOne: string;
+    let currentFlagTwo: string;
     let friends: string;
     
     
@@ -64,13 +65,23 @@ namespace Abschluss {
     crc2.fillRect(0,0,800,600);
         
         
-        let fahnen: string[]= ["Germany", "Columbia", "Japan","CostaRica", "Gambia"];
+        let fahnenOne: string[]= ["Germany", "Columbia", "Japan","CostaRica", "Gambia"];
+        let fahnenTwo: string[]= ["Germany", "Columbia", "Japan","CostaRica", "Gambia"];
+
         
-        let anzahl: number= fahnen.length;
+        let anzahlOne: number= fahnenOne.length;
+        let anzahlTwo: number= fahnenTwo.length;
         
-        if (anzahl==fahnen.length) {
-            for ( let i:number; i<fahnen.length; i++) {
-                drawDiv(fahnen[i]);
+        if (anzahlOne==fahnenOne.length) {
+            for ( let i:number=0; i<fahnenOne.length; i++) {
+                drawDiv(fahnenOne[i]);
+                }
+        
+        }
+        
+        if (anzahlTwo==fahnenTwo.length) {
+            for ( let i:number=0; i<fahnenTwo.length; i++) {
+                drawDiv(fahnenTwo[i]);
                 }
         
         }
@@ -92,7 +103,7 @@ namespace Abschluss {
             let fA: FlagsArray = flags[i];
             fA.update();
            
-             document.addEventListener("click", handleClick);
+            // document.addEventListener("click", handleClick);
              
              }
         }
@@ -105,8 +116,8 @@ namespace Abschluss {
         div.id= _flags;
         div.className= "flaggen";
         
-        div.addEventListener("click", handleClickTwo);
-        document.getElementById("Germany").appendChild(div);
+        div.addEventListener("click", handleClick);
+        document.body.appendChild(div);
         
         }
     
@@ -118,12 +129,12 @@ namespace Abschluss {
         click.style.borderStyle= "solid";
         click.style.borderColor= "yellow";
         
-        currentFlag= click.id
+        currentFlagOne= click.id
         
        let divlistFlag: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("flaggen");
 
         for (let i: number = 0; i < divlistFlag.length; i++) {
-            if (currentFlag != divlistFlag[i].id) {
+            if (currentFlagOne != divlistFlag[i].id) {
                 divlistFlag[i].style.borderColor = "red";
             }
         }
@@ -138,7 +149,7 @@ namespace Abschluss {
         
         friends= click.id;
         
-        if (currentFlag == "Germany" && currentFlag == "Japan") {
+        if (currentFlagOne == "Germany" && currentFlagOne == "Japan") {
             alert ("Du hast eine Freundschaft zwischen Japan und Deutschland aufgebaut"); }
         
         }

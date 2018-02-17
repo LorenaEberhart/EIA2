@@ -45,8 +45,8 @@ var Abschluss;
         //Hintergrund
         Abschluss.crc2.fillStyle = "lightgrey";
         Abschluss.crc2.fillRect(0, 0, 800, 600);
-        let fahnenOne = ["Germany", "Columbia", "Japan", "CostaRica", "Gambia"];
-        let fahnenTwo = ["Germany", "Columbia", "Japan", "CostaRica", "Gambia"];
+        let fahnenOne = ["Germany"];
+        let fahnenTwo = ["Columbia", "Japan", "CostaRica", "Gambia"];
         let anzahlOne = fahnenOne.length;
         let anzahlTwo = fahnenTwo.length;
         if (anzahlOne == fahnenOne.length) {
@@ -56,7 +56,7 @@ var Abschluss;
         }
         if (anzahlTwo == fahnenTwo.length) {
             for (let i = 0; i < fahnenTwo.length; i++) {
-                drawDiv(fahnenTwo[i]);
+                drawDivTwo(fahnenTwo[i]);
             }
         }
         drawFlags();
@@ -78,6 +78,13 @@ var Abschluss;
         div.addEventListener("click", handleClick);
         document.body.appendChild(div);
     }
+    function drawDivTwo(_flags) {
+        let div = document.createElement("div");
+        div.id = _flags;
+        div.className = "flaggenZwei";
+        div.addEventListener("click", handleClickTwo);
+        document.body.appendChild(div);
+    }
     //--------------Events------------------------------//
     function handleClick(_event) {
         let click = _event.target;
@@ -93,9 +100,31 @@ var Abschluss;
     }
     function handleClickTwo(_event) {
         let click = _event.target;
+        click.style.borderStyle = "solid";
+        click.style.borderColor = "yellow";
+        currentFlagTwo = click.id;
+        let divlistFlagTwo = document.getElementsByClassName("flaggenZwei");
+        for (let i = 0; i < divlistFlagTwo.length; i++) {
+            if (currentFlagTwo != divlistFlagTwo[i].id) {
+                divlistFlagTwo[i].style.borderStyle = "none";
+            }
+        }
+        document.addEventListener("click", handle);
+    }
+    function handle(_event) {
+        let click = _event.target;
         friends = click.id;
-        if (currentFlagOne == "Germany" && currentFlagOne == "Japan") {
+        if (currentFlagOne == "Germany" && currentFlagTwo == "Japan") {
             alert("Du hast eine Freundschaft zwischen Japan und Deutschland aufgebaut");
+        }
+        if (currentFlagOne == "Germany" && currentFlagTwo == "Columbia") {
+            alert("Du hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut");
+        }
+        if (currentFlagOne == "Germany" && currentFlagTwo == "Gambia") {
+            alert("Du hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut");
+        }
+        if (currentFlagOne == "Germany" && currentFlagTwo == "CostaRica") {
+            alert("Du hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut");
         }
     }
 })(Abschluss || (Abschluss = {}));

@@ -12,6 +12,7 @@ Er wurde nicht kopiert und auch nicht diktiert.
 namespace Abschluss {
      window.addEventListener("load", init);
     
+    
     let currentFlagOne: string;
     let currentFlagTwo: string;
     let friends: string;
@@ -65,8 +66,8 @@ namespace Abschluss {
     crc2.fillRect(0,0,800,600);
         
         
-        let fahnenOne: string[]= ["Germany", "Columbia", "Japan","CostaRica", "Gambia"];
-        let fahnenTwo: string[]= ["Germany", "Columbia", "Japan","CostaRica", "Gambia"];
+        let fahnenOne: string[]= ["Germany"];
+        let fahnenTwo: string[]= ["Columbia", "Japan","CostaRica", "Gambia"];
 
         
         let anzahlOne: number= fahnenOne.length;
@@ -81,7 +82,7 @@ namespace Abschluss {
         
         if (anzahlTwo==fahnenTwo.length) {
             for ( let i:number=0; i<fahnenTwo.length; i++) {
-                drawDiv(fahnenTwo[i]);
+                drawDivTwo(fahnenTwo[i]);
                 }
         
         }
@@ -121,6 +122,19 @@ namespace Abschluss {
         
         }
     
+    function drawDivTwo(_flags: string): void {
+        
+        let div: HTMLDivElement= document.createElement("div");
+        
+      
+        div.id= _flags;
+        div.className= "flaggenZwei";
+        
+        div.addEventListener("click", handleClickTwo);
+        document.body.appendChild(div);
+        
+        }
+    
     //--------------Events------------------------------//
     
     function handleClick(_event: MouseEvent): void {
@@ -143,14 +157,43 @@ namespace Abschluss {
         
       }
     
-    
     function handleClickTwo(_event: MouseEvent): void {
+        
+        let click: HTMLDivElement = <HTMLDivElement>_event.target;
+        click.style.borderStyle= "solid";
+        click.style.borderColor= "yellow";
+        
+        currentFlagTwo= click.id
+        
+       let divlistFlagTwo: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("flaggenZwei");
+
+        for (let i: number = 0; i < divlistFlagTwo.length; i++) {
+            if (currentFlagTwo != divlistFlagTwo[i].id) {
+                divlistFlagTwo[i].style.borderStyle = "none";
+            }
+        }
+        
+        document.addEventListener("click", handle);
+        
+      }
+    
+    
+    function handle(_event: MouseEvent): void {
         let click: HTMLDivElement = <HTMLDivElement>_event.target;
         
         friends= click.id;
         
-        if (currentFlagOne == "Germany" && currentFlagOne == "Japan") {
+        if (currentFlagOne == "Germany" && currentFlagTwo == "Japan") {
             alert ("Du hast eine Freundschaft zwischen Japan und Deutschland aufgebaut"); }
+        
+        if (currentFlagOne == "Germany" && currentFlagTwo == "Columbia") {
+            alert ("Du hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut"); }
+        
+        if (currentFlagOne == "Germany" && currentFlagTwo == "Gambia") {
+            alert ("Du hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut"); }
+        
+        if (currentFlagOne == "Germany" && currentFlagTwo == "CostaRica") {
+            alert ("Du hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut"); }
         
         }
     

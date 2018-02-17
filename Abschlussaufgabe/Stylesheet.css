@@ -61,51 +61,93 @@ canvas {
 }
 
 
-/*----------------Tablet-----------------*/
-/*@media screen and (min-width:48em) {
+/*-----------------Tablet Portarit-------------*/
+@media screen and (min-width:35.625em) {
 	
-	canvas {
-			width: 60%;
-			}
+
 			
 	#Japan {
-			top: 7.5vw;
-			left: 43.2vw;
-			width: 14.5%;
-			height: 10.9vw;
+			top: 13.5vw;
+			left: 71.2vw;
+			width: 24%;
+			height: 18vw;
 			}	
 	#Germany {
-			top: 22.2vw;
-			left: 22.8vw;
-			width: 14.5%;
-			height: 10.9vw;
+			top: 38vw;
+			left: 37.7vw;
+			width: 24%;
+			height: 18vw;
 	}	
 	
 	#Columbia {
-			top: 7.5vw;
-			left: 2.4vw;
-			width: 14.5%;
-			height: 10.9vw;
+			top: 13.5vw;
+			left: 4vw;
+			width: 24%;
+			height: 18vw;
 	}	
 	
 	#CostaRica {
-			top: 37vw;
-			left: 2.4vw;
-			width: 14.5%;
-			height: 10.9vw;
+			top: 62.8vw;
+			left: 4vw;
+			width: 24%;
+			height: 18vw;
 	}	
 	
 	#Gambia {
-			top: 37vw;
-			left: 43.2vw;
-			width: 14.5%;
-			height: 10.9vw;
+			top: 62.8vw;
+			left: 71.2vw;
+			width: 24%;
+			height: 18vw;
 	}	
 			
 }
 
 
-*/
+
+
+/*----------------Tablet-----------------*/
+@media screen and (min-width:48em) {
+	
+
+			
+	#Japan {
+			top: 11vw;
+			left: 71.55vw;
+			width: 24%;
+			height: 18vw;
+			}	
+	#Germany {
+			top: 35.6vw;
+			left: 37.7vw;
+			width: 24%;
+			height: 18vw;
+	}	
+	
+	#Columbia {
+			top: 11vw;
+			left: 3.9vw;
+			width: 24%;
+			height: 18vw;
+	}	
+	
+	#CostaRica {
+			top: 60.2vw;
+			left: 3.9vw;
+			width: 24%;
+			height: 18vw;
+	}	
+	
+	#Gambia {
+			top: 60.2vw;
+			left: 71.55vw;
+			width: 24%;
+			height: 18vw;
+	}	
+			
+}
+
+
+
 
 /*----------------Desktop-----------------*/
 @media screen and (min-width:64em) {

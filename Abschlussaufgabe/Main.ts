@@ -212,8 +212,6 @@ namespace Abschluss {
         friends= click.id;
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "Japan") {
-            crc2.putImageData(image,0,0);
-            image= crc2.getImageData(0,0,800,600);
             drawConfetti();
             alert ("Kon'nichiwa, watashitachiha tomodachidesu. \nDu hast eine Freundschaft zwischen Japan und Deutschland aufgebaut.");
             animate();

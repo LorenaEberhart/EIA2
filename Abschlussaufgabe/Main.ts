@@ -12,6 +12,7 @@ Er wurde nicht kopiert und auch nicht diktiert.
 namespace Abschluss {
      window.addEventListener("load", init);
     
+ //   alert("Helfe Deutschland, neue Länderfreundschaften aufzubauen!");
     
     let currentFlagOne: string;
     let currentFlagTwo: string;
@@ -21,12 +22,18 @@ namespace Abschluss {
     export let crc2: CanvasRenderingContext2D;
     
     let flags: FlagsArray[] = [];
+    let confetti: Konfetti[]=[];
     let nflagge: number= 1;
+    let nconfetti: number= 200;
+    let image: ImageData;
 
    
     //---------------------------Flaggen positionieren----------------------//
     
     function init(): void {
+      
+        
+        
     var canvas: HTMLCanvasElement = document.getElementsByTagName("canvas") [0];
     console.log(canvas);
     
@@ -60,6 +67,10 @@ namespace Abschluss {
             let cr: CostaRicaInfo = new CostaRicaInfo(25, 425);
             flags.push(cr);
        }
+        
+        
+       
+        
        
     //Hintergrund
     crc2.fillStyle="lightgrey";
@@ -97,6 +108,18 @@ namespace Abschluss {
      
         
   }
+    
+    //Konfetti
+    
+    function drawConfetti(): void {
+        for (let i: number = 0; i < nconfetti; i++) {
+            let confX = 0 + Math.random() * 800;
+            let confY = 0 + Math.random() * 600;
+
+            let k: Konfetti = new Konfetti(confX, confY);
+            confetti.push(k);
+        } 
+      }
     
     function drawFlags(): void {
         
@@ -178,24 +201,75 @@ namespace Abschluss {
       }
     
     
+    
+    
+    
+    
     function handle(_event: MouseEvent): void {
         let click: HTMLDivElement = <HTMLDivElement>_event.target;
-        
+      // image= crc2.getImageData(0,0,800,600);
+   
         friends= click.id;
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "Japan") {
-            alert ("Du hast eine Freundschaft zwischen Japan und Deutschland aufgebaut"); }
+            crc2.putImageData(image,0,0);
+            image= crc2.getImageData(0,0,800,600);
+            drawConfetti();
+            alert ("Kon'nichiwa, watashitachiha tomodachidesu. \nDu hast eine Freundschaft zwischen Japan und Deutschland aufgebaut.");
+            animate();
+            
+        }
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "Columbia") {
-            alert ("Du hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut"); }
+            alert ("Hola, que beuno somos amigos! \nDu hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut"); }
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "Gambia") {
-            alert ("Du hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut"); }
+          
+            drawConfetti();
+            alert ("Sawubona, mnandi ukuba sihlobo. \nDu hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut"); 
+           animate();
+            
+            
+        }
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "CostaRica") {
-            alert ("Du hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut"); }
+            alert ("Pura Vida, trabamos amistad con vos! \nDu hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut");
+            sound(); }
+        
+        
         
         }
+    
+    function sound(): void {
+        
+            var soundfile ="Joshua_Ticsay_-_Breathe.mp3";
+            var sound_id="soundbox";
+            var sound_message = "<";
+            sound_message += 'embed src="' + soundfile + '" autostart="true" loop="false" hidden="true" height="0" width="0"';
+            sound_message += ">";
+            document.getElementById(sound_id).innerHTML= sound_message;
+    }
+    
+    
+    
+    
+    //-------------ANIMATE-----------------//
+
+    function animate(): void {
+        //crc2.clearRect(0,0,800,600);
+        crc2.putImageData(image, 0, 0);
+
+        for (let i = 0; i < confetti.length; i++) {
+            let k: Konfetti = confetti[i];
+            k.update();
+            
+        }
+
+
+
+
+        window.setTimeout(animate, 10);
+    }
     
     
     

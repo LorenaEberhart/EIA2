@@ -11,11 +11,15 @@ Er wurde nicht kopiert und auch nicht diktiert.
 var Abschluss;
 (function (Abschluss) {
     window.addEventListener("load", init);
+    //   alert("Helfe Deutschland, neue Länderfreundschaften aufzubauen!");
     let currentFlagOne;
     let currentFlagTwo;
     let friends;
     let flags = [];
+    let confetti = [];
     let nflagge = 1;
+    let nconfetti = 200;
+    let image;
     //---------------------------Flaggen positionieren----------------------//
     function init() {
         var canvas = document.getElementsByTagName("canvas")[0];
@@ -65,6 +69,15 @@ var Abschluss;
         //  document.getElementById("CostaRica").addEventListener("click", handleClick);
         //  document.getElementById("Gambia").addEventListener("click", handleClick);
     }
+    //Konfetti
+    function drawConfetti() {
+        for (let i = 0; i < nconfetti; i++) {
+            let confX = 0 + Math.random() * 800;
+            let confY = 0 + Math.random() * 600;
+            let k = new Abschluss.Konfetti(confX, confY);
+            confetti.push(k);
+        }
+    }
     function drawFlags() {
         for (let i = 0; i < flags.length; i++) {
             let fA = flags[i];
@@ -113,19 +126,45 @@ var Abschluss;
     }
     function handle(_event) {
         let click = _event.target;
+        // image= crc2.getImageData(0,0,800,600);
         friends = click.id;
         if (currentFlagOne == "Germany" && currentFlagTwo == "Japan") {
-            alert("Du hast eine Freundschaft zwischen Japan und Deutschland aufgebaut");
+            Abschluss.crc2.putImageData(image, 0, 0);
+            image = Abschluss.crc2.getImageData(0, 0, 800, 600);
+            drawConfetti();
+            alert("Kon'nichiwa, watashitachiha tomodachidesu. \nDu hast eine Freundschaft zwischen Japan und Deutschland aufgebaut.");
+            animate();
         }
         if (currentFlagOne == "Germany" && currentFlagTwo == "Columbia") {
-            alert("Du hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut");
+            alert("Hola, que beuno somos amigos! \nDu hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut");
         }
         if (currentFlagOne == "Germany" && currentFlagTwo == "Gambia") {
-            alert("Du hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut");
+            drawConfetti();
+            alert("Sawubona, mnandi ukuba sihlobo. \nDu hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut");
+            animate();
         }
         if (currentFlagOne == "Germany" && currentFlagTwo == "CostaRica") {
-            alert("Du hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut");
+            alert("Pura Vida, trabamos amistad con vos! \nDu hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut");
+            sound();
         }
+    }
+    function sound() {
+        var soundfile = "Joshua_Ticsay_-_Breathe.mp3";
+        var sound_id = "soundbox";
+        var sound_message = "<";
+        sound_message += 'embed src="' + soundfile + '" autostart="true" loop="false" hidden="true" height="0" width="0"';
+        sound_message += ">";
+        document.getElementById(sound_id).innerHTML = sound_message;
+    }
+    //-------------ANIMATE-----------------//
+    function animate() {
+        //crc2.clearRect(0,0,800,600);
+        Abschluss.crc2.putImageData(image, 0, 0);
+        for (let i = 0; i < confetti.length; i++) {
+            let k = confetti[i];
+            k.update();
+        }
+        window.setTimeout(animate, 10);
     }
 })(Abschluss || (Abschluss = {}));
 //# sourceMappingURL=Main.js.map

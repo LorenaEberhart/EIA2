@@ -26,6 +26,7 @@ namespace Abschluss {
     let nflagge: number= 1;
     let nconfetti: number= 200;
     let image: ImageData;
+    
 
    
     //---------------------------Flaggen positionieren----------------------//
@@ -100,12 +101,9 @@ namespace Abschluss {
         
         drawFlags();
         
-      // document.getElementById("Columbia").addEventListener("click", handleClick);
-      //  document.getElementById("Japan").addEventListener("click", handleClick);
-     //  document.getElementById("CostaRica").addEventListener("click", handleClick);
-      //  document.getElementById("Gambia").addEventListener("click", handleClick);
+      
         
-     
+     image= crc2.getImageData(0,0,800,600);
         
   }
     
@@ -127,7 +125,7 @@ namespace Abschluss {
             let fA: FlagsArray = flags[i];
             fA.update();
            
-            // document.addEventListener("click", handleClick);
+           
              
              }
         }
@@ -193,10 +191,13 @@ namespace Abschluss {
         for (let i: number = 0; i < divlistFlagTwo.length; i++) {
             if (currentFlagTwo != divlistFlagTwo[i].id) {
                 divlistFlagTwo[i].style.borderStyle = "none";
+                
             }
         }
         
-        document.addEventListener("click", handle);
+        
+        
+       document.addEventListener("click", handle);
         
       }
     
@@ -207,38 +208,60 @@ namespace Abschluss {
     
     function handle(_event: MouseEvent): void {
         let click: HTMLDivElement = <HTMLDivElement>_event.target;
-      // image= crc2.getImageData(0,0,800,600);
    
         friends= click.id;
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "Japan") {
             drawConfetti();
-            alert ("Kon'nichiwa, watashitachiha tomodachidesu. \nDu hast eine Freundschaft zwischen Japan und Deutschland aufgebaut.");
+            var song= new Audio();
+            song.src= "Japan.mp3";
+            song.play();
+            alert ("Kon'nichiwa, watashitachiha tomodachidesu. \nDu hast eine Freundschaft zwischen Japan und Deutschland aufgebaut.\nDu hörst die Japanische Nationalhymne.");
             animate();
             
         }
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "Columbia") {
-            alert ("Hola, que beuno somos amigos! \nDu hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut"); }
+            drawConfetti();
+            var song= new Audio();
+            song.src= "Colombia.mp3";
+            song.play();
+            alert ("Hola, que beuno somos amigos! \nDu hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut. \nDu hörst die Kolumbianische Nationalhymne."); 
+            animate();
+        }
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "Gambia") {
-          
             drawConfetti();
-            alert ("Sawubona, mnandi ukuba sihlobo. \nDu hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut"); 
-           animate();
+            var song= new Audio();
+            song.src= "Gambia.mp3";
+            song.play();
+            alert ("Sawubona, mnandi ukuba sihlobo. \nDu hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut. \nDu hörst die Nationalhymne von Gambia."); 
+            animate();
+            
             
             
         }
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "CostaRica") {
-            alert ("Pura Vida, trabamos amistad con vos! \nDu hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut");
-            sound(); }
+            drawConfetti();
+            var song= new Audio();
+            song.src= "Costa Rica.mp3";
+            song.play();
+            alert ("Pura Vida, trabamos amistad con vos! \nDu hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut \nDu hörst die Nationalhymne von Costa Rica.");
+            animate();
+            
+            
+    
+         }
+        
         
         
         
         }
     
-    function sound(): void {
+    
+   
+  /*  function sound(): void {
         
             var soundfile ="Joshua_Ticsay_-_Breathe.mp3";
             var sound_id="soundbox";
@@ -246,7 +269,7 @@ namespace Abschluss {
             sound_message += 'embed src="' + soundfile + '" autostart="true" loop="false" hidden="true" height="0" width="0"';
             sound_message += ">";
             document.getElementById(sound_id).innerHTML= sound_message;
-    }
+    } */
     
     
     

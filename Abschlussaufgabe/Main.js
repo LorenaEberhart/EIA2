@@ -64,10 +64,7 @@ var Abschluss;
             }
         }
         drawFlags();
-        // document.getElementById("Columbia").addEventListener("click", handleClick);
-        //  document.getElementById("Japan").addEventListener("click", handleClick);
-        //  document.getElementById("CostaRica").addEventListener("click", handleClick);
-        //  document.getElementById("Gambia").addEventListener("click", handleClick);
+        image = Abschluss.crc2.getImageData(0, 0, 800, 600);
     }
     //Konfetti
     function drawConfetti() {
@@ -126,34 +123,49 @@ var Abschluss;
     }
     function handle(_event) {
         let click = _event.target;
-        // image= crc2.getImageData(0,0,800,600);
         friends = click.id;
         if (currentFlagOne == "Germany" && currentFlagTwo == "Japan") {
             drawConfetti();
-            alert("Kon'nichiwa, watashitachiha tomodachidesu. \nDu hast eine Freundschaft zwischen Japan und Deutschland aufgebaut.");
+            var song = new Audio();
+            song.src = "Japan.mp3";
+            song.play();
+            alert("Kon'nichiwa, watashitachiha tomodachidesu. \nDu hast eine Freundschaft zwischen Japan und Deutschland aufgebaut.\nDu hörst die Japanische Nationalhymne.");
             animate();
         }
         if (currentFlagOne == "Germany" && currentFlagTwo == "Columbia") {
-            alert("Hola, que beuno somos amigos! \nDu hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut");
+            drawConfetti();
+            var song = new Audio();
+            song.src = "Colombia.mp3";
+            song.play();
+            alert("Hola, que beuno somos amigos! \nDu hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut. \nDu hörst die Kolumbianische Nationalhymne.");
+            animate();
         }
         if (currentFlagOne == "Germany" && currentFlagTwo == "Gambia") {
             drawConfetti();
-            alert("Sawubona, mnandi ukuba sihlobo. \nDu hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut");
+            var song = new Audio();
+            song.src = "Gambia.mp3";
+            song.play();
+            alert("Sawubona, mnandi ukuba sihlobo. \nDu hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut. \nDu hörst die Nationalhymne von Gambia.");
             animate();
         }
         if (currentFlagOne == "Germany" && currentFlagTwo == "CostaRica") {
-            alert("Pura Vida, trabamos amistad con vos! \nDu hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut");
-            sound();
+            drawConfetti();
+            var song = new Audio();
+            song.src = "Costa Rica.mp3";
+            song.play();
+            alert("Pura Vida, trabamos amistad con vos! \nDu hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut \nDu hörst die Nationalhymne von Costa Rica.");
+            animate();
         }
     }
-    function sound() {
-        var soundfile = "Joshua_Ticsay_-_Breathe.mp3";
-        var sound_id = "soundbox";
-        var sound_message = "<";
-        sound_message += 'embed src="' + soundfile + '" autostart="true" loop="false" hidden="true" height="0" width="0"';
-        sound_message += ">";
-        document.getElementById(sound_id).innerHTML = sound_message;
-    }
+    /*  function sound(): void {
+          
+              var soundfile ="Joshua_Ticsay_-_Breathe.mp3";
+              var sound_id="soundbox";
+              var sound_message = "<";
+              sound_message += 'embed src="' + soundfile + '" autostart="true" loop="false" hidden="true" height="0" width="0"';
+              sound_message += ">";
+              document.getElementById(sound_id).innerHTML= sound_message;
+      } */
     //-------------ANIMATE-----------------//
     function animate() {
         //crc2.clearRect(0,0,800,600);

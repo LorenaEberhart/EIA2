@@ -258,7 +258,7 @@ namespace Abschluss {
             alert ("Pura Vida, trabamos amistad con vos! \nDu hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut.");
             alert ("Hast du schon einmal die Nationalhymne von Costa Rica gehört? \nLehne dich zurück! \nNeue Freundschaften können danach noch geschlossen werden :)");
             animate();
-            setTimeout("window.location='Abschluss.html'",15000);
+           setTimeout("window.location='Abschluss.html'",15000); 
             
             
     

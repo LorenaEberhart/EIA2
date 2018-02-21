@@ -236,6 +236,7 @@ namespace Abschluss {
         }
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "Gambia") {
+            
             drawConfetti();
             var song= new Audio();
             song.src= "Gambia.mp3";
@@ -244,6 +245,7 @@ namespace Abschluss {
             alert ("Hast du schon einmal die Nationalhymne von Gambia gehört? \nLehne dich zurück! \nNeue Freundschaften können danach noch geschlossen werden :)");
             animate();
             setTimeout("window.location='Abschluss.html'",15000);
+            
             
             
             
@@ -268,6 +270,7 @@ namespace Abschluss {
         
         
         }
+    
     
     
   

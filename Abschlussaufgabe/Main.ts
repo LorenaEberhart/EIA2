@@ -12,7 +12,8 @@ Er wurde nicht kopiert und auch nicht diktiert.
 namespace Abschluss {
      window.addEventListener("load", init);
     
- //   alert("Helfe Deutschland, neue Länderfreundschaften aufzubauen!");
+   
+    
     
     let currentFlagOne: string;
     let currentFlagTwo: string;
@@ -216,8 +217,10 @@ namespace Abschluss {
             var song= new Audio();
             song.src= "Japan.mp3";
             song.play();
-            alert ("Kon'nichiwa, watashitachiha tomodachidesu. \nDu hast eine Freundschaft zwischen Japan und Deutschland aufgebaut.\nDu hörst die Japanische Nationalhymne.");
+            alert ("Kon'nichiwa, watashitachiha tomodachidesu. \nDu hast eine Freundschaft zwischen Japan und Deutschland aufgebaut.");
+            alert ("Klingt die japanische Nationalhymne nicht dramatisch? \nLehne dich zurück! \nNeue Freundschaften können danach noch geschlossen werden :)");
             animate();
+            setTimeout("window.location='Abschluss.html'",15000);
             
         }
         
@@ -226,8 +229,10 @@ namespace Abschluss {
             var song= new Audio();
             song.src= "Colombia.mp3";
             song.play();
-            alert ("Hola, que beuno somos amigos! \nDu hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut. \nDu hörst die Kolumbianische Nationalhymne."); 
+            alert ("Hola, que beuno somos amigos! \nDu hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut."); 
+            alert ("Klingt die kolumbianische Nationalhymne nicht cool? \nLehne dich zurück! \nNeue Freundschaften können danach noch geschlossen werden :)");
             animate();
+            setTimeout("window.location='Abschluss.html'",15000);
         }
         
         if (currentFlagOne == "Germany" && currentFlagTwo == "Gambia") {
@@ -235,8 +240,11 @@ namespace Abschluss {
             var song= new Audio();
             song.src= "Gambia.mp3";
             song.play();
-            alert ("Sawubona, mnandi ukuba sihlobo. \nDu hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut. \nDu hörst die Nationalhymne von Gambia."); 
+            alert ("Sawubona, mnandi ukuba sihlobo. \nDu hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut."); 
+            alert ("Hast du schon einmal die Nationalhymne von Gambia gehört? \nLehne dich zurück! \nNeue Freundschaften können danach noch geschlossen werden :)");
             animate();
+            setTimeout("window.location='Abschluss.html'",15000);
+            
             
             
             
@@ -247,8 +255,10 @@ namespace Abschluss {
             var song= new Audio();
             song.src= "Costa Rica.mp3";
             song.play();
-            alert ("Pura Vida, trabamos amistad con vos! \nDu hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut \nDu hörst die Nationalhymne von Costa Rica.");
+            alert ("Pura Vida, trabamos amistad con vos! \nDu hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut.");
+            alert ("Hast du schon einmal die Nationalhymne von Costa Rica gehört? \nLehne dich zurück! \nNeue Freundschaften können danach noch geschlossen werden :)");
             animate();
+            setTimeout("window.location='Abschluss.html'",15000);
             
             
     
@@ -260,17 +270,7 @@ namespace Abschluss {
         }
     
     
-   
-  /*  function sound(): void {
-        
-            var soundfile ="Joshua_Ticsay_-_Breathe.mp3";
-            var sound_id="soundbox";
-            var sound_message = "<";
-            sound_message += 'embed src="' + soundfile + '" autostart="true" loop="false" hidden="true" height="0" width="0"';
-            sound_message += ">";
-            document.getElementById(sound_id).innerHTML= sound_message;
-    } */
-    
+  
     
     
     

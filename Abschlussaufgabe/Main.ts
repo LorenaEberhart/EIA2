@@ -2,7 +2,7 @@
 Aufgabe: Abschlussaufgabe
 Name: Lorena Eberhart
 Matrikel: 256328
-Datum: 13.10.17
+Datum: 23.02.18
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 Er wurde nicht kopiert und auch nicht diktiert.
@@ -27,6 +27,7 @@ namespace Abschluss {
     let nflagge: number= 1;
     let nconfetti: number= 200;
     let image: ImageData;
+    let song= new Audio();
     
 
    
@@ -74,11 +75,21 @@ namespace Abschluss {
        
         
        
-    //Hintergrund
-    crc2.fillStyle="lightgrey";
-    crc2.fillRect(0,0,800,600);
+    //---------------------Hintergrund--------------------------------//
+   
+   let gradient= crc2.createLinearGradient(0,0,600,0);
+   
+        gradient.addColorStop(0, "white");
+        gradient.addColorStop(0.5, "lightgrey");
+        gradient.addColorStop(1,"grey");
+        crc2.fillStyle=gradient;
+        crc2.fillRect(0,0,800,600);
+      
+   
         
         
+        
+      //------------------------Arrays-------------------------------------//
         let fahnenOne: string[]= ["Germany"];
         let fahnenTwo: string[]= ["Columbia", "Japan","CostaRica", "Gambia"];
 
@@ -108,9 +119,12 @@ namespace Abschluss {
         
   }
     
-    //Konfetti
+    //------------------------------Konfetti-------------------------------//
     
     function drawConfetti(): void {
+        
+        confetti=[];
+        
         for (let i: number = 0; i < nconfetti; i++) {
             let confX = 0 + Math.random() * 800;
             let confY = 0 + Math.random() * 600;
@@ -120,6 +134,8 @@ namespace Abschluss {
         } 
       }
     
+    
+    //-------------------------Flaggen zeichnen-------------------------//
     function drawFlags(): void {
         
          for (let i: number = 0; i < flags.length; i++) {
@@ -130,6 +146,9 @@ namespace Abschluss {
              
              }
         }
+    
+    
+    //----------------------------Divs zeichnen---------------------//
     
     function drawDiv(_flags: string): void {
         
@@ -153,9 +172,11 @@ namespace Abschluss {
         div.className= "flaggenZwei";
         
         div.addEventListener("click", handleClickTwo);
+        div.addEventListener("click", handle);
         document.body.appendChild(div);
         
         }
+    
     
     //--------------Events------------------------------//
     
@@ -198,7 +219,7 @@ namespace Abschluss {
         
         
         
-       document.addEventListener("click", handle);
+     
         
       }
     
@@ -212,39 +233,59 @@ namespace Abschluss {
    
         friends= click.id;
         
+        
+        //---------------------Germany&Japan----------------------------//
         if (currentFlagOne == "Germany" && currentFlagTwo == "Japan") {
             drawConfetti();
-            var song= new Audio();
+            
+            if(song!=null) {
+             song.pause();
+                }
+            
             song.src= "Japan.mp3";
             song.play();
             alert ("Kon'nichiwa, watashitachiha tomodachidesu. \nDu hast eine Freundschaft zwischen Japan und Deutschland aufgebaut.");
             alert ("Klingt die japanische Nationalhymne nicht dramatisch? \nLehne dich zurück! \nNeue Freundschaften können danach noch geschlossen werden :)");
             animate();
-            setTimeout("window.location='Abschluss.html'",15000);
+           // setTimeout("window.location='Abschluss.html'",15000);
             
         }
         
+        
+        //------------------------Germany&Colombia------------------------//
         if (currentFlagOne == "Germany" && currentFlagTwo == "Columbia") {
             drawConfetti();
-            var song= new Audio();
+            
+            if(song!=null) {
+             song.pause();
+                }
+            
+           
             song.src= "Colombia.mp3";
             song.play();
             alert ("Hola, que beuno somos amigos! \nDu hast eine Freundschaft zwischen Kolumbien und Deutschland aufgebaut."); 
             alert ("Klingt die kolumbianische Nationalhymne nicht cool? \nLehne dich zurück! \nNeue Freundschaften können danach noch geschlossen werden :)");
             animate();
-            setTimeout("window.location='Abschluss.html'",15000);
+          
         }
         
+        
+        //-------------------------Germany&Gambia-------------------------//
         if (currentFlagOne == "Germany" && currentFlagTwo == "Gambia") {
             
             drawConfetti();
-            var song= new Audio();
+            
+            if(song!=null) {
+             song.pause();
+                }
+            
+           
             song.src= "Gambia.mp3";
             song.play();
             alert ("Sawubona, mnandi ukuba sihlobo. \nDu hast eine Freundschaft zwischen Gambia und Deutschland aufgebaut."); 
             alert ("Hast du schon einmal die Nationalhymne von Gambia gehört? \nLehne dich zurück! \nNeue Freundschaften können danach noch geschlossen werden :)");
             animate();
-            setTimeout("window.location='Abschluss.html'",15000);
+           
             
             
             
@@ -252,15 +293,22 @@ namespace Abschluss {
             
         }
         
+        
+        //---------------------------Germany&Costa Rica---------------------//
         if (currentFlagOne == "Germany" && currentFlagTwo == "CostaRica") {
             drawConfetti();
-            var song= new Audio();
+            
+            if(song!=null) {
+             song.pause();
+                }
+            
+          
             song.src= "Costa Rica.mp3";
             song.play();
             alert ("Pura Vida, trabamos amistad con vos! \nDu hast eine Freundschaft zwischen Costa Rica und Deutschland aufgebaut.");
             alert ("Hast du schon einmal die Nationalhymne von Costa Rica gehört? \nLehne dich zurück! \nNeue Freundschaften können danach noch geschlossen werden :)");
             animate();
-           setTimeout("window.location='Abschluss.html'",15000); 
+           
             
             
     

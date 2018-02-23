@@ -10,36 +10,39 @@ Er wurde nicht kopiert und auch nicht diktiert.
 */
 var A9;
 (function (A9) {
-    window.addEventListener("load", init);
-    let currentLetter;
+    //Globaler namespace: überall zugänglich, lokaler namespace: von bestimmten Teilen des Programms zugänglich
+    window.addEventListener("load", init); //Wenn Fenster geladen ist wird Funktion init ausgeführt
+    let currentLetter; //Variable mir dem namen currentLetter wird angelegt vom Typ string, man kann von allen funktionen zugreifen
     //document.addEventListener("keypressed", handleAlt);
-    document.addEventListener("keydown", tastaturEingabe);
+    document.addEventListener("keydown", tastaturEingabe); //horcht ob taste gedrückt wird, wenn ja dann führt es die funktion tastaturEingabe (EventHandler) aus; keydown: Event
     //Buchstaben erstellen
     function init() {
+        //Array anlegen für die einzelnen Buchstaben
         let buchstaben = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-        let anzahl = buchstaben.length;
+        let anzahl = buchstaben.length; //Länge des Arrays wird als Zahl in die Variable anzahl gespeichert
         if (anzahl == buchstaben.length) {
             for (let i = 0; i < buchstaben.length; i++) {
-                drawBox(buchstaben[i]);
+                drawBox(buchstaben[i]); //ein Kasten gemalt
             }
         }
         drawBrief();
     }
     //Farbe ändern beim Klicken und Buchstaben auswählen
     function handleClick(_event) {
-        let klicken = _event.target;
-        klicken.style.color = "white";
-        currentLetter = klicken.id;
-        let divList = document.getElementsByClassName("letters");
+        let klicken = _event.target; //Variable heißt klicken vom Typ HTMLDIvElement soll ein _event.target sein, soll also geklickt werden können
+        klicken.style.color = "white"; //bei klicken ändert sich die Farbe; target= knoten der vom event angesprochen wird und darauf horcht ob er angeklickt wurde
+        currentLetter = klicken.id; //jeder Buchstabe hat bei der Erstellung eine eigene ID erhalten. Der Buchstabe der gerade geklickt wurde (also event.target), dessen ID wird dann in currentLetter gespeichert
+        // z.B. der Buchstabe K wurde erstellt mit der id K, nun wurde k angeklickt und dessen ID also K in currentLetter gespeichert
+        let divList = document.getElementsByClassName("letters"); //Liste erstellen um alle Buchstaben abzuspeichern
         for (let i = 0; i < divList.length; i++) {
             if (currentLetter != divList[i].id) {
-                divList[i].style.color = "black";
+                divList[i].style.color = "black"; //dann werden alle anderen schwarz nur der geklickte buchstabe hat dann eine andere farbe
             }
         }
     }
     //divs mit Buchstaben erstellen
     function drawBox(_buchstaben) {
-        let div = document.createElement("div");
+        let div = document.createElement("div"); //erstellem eines HTMLDivELement
         div.innerText = _buchstaben;
         div.style.backgroundColor = "lightblue";
         div.style.width = "35px";
@@ -50,7 +53,7 @@ var A9;
         div.style.textAlign = "center";
         div.id = _buchstaben; //ID erstellt um divs zu vergleichen
         div.className = "letters";
-        div.addEventListener("click", handleClick);
+        div.addEventListener("click", handleClick); //EventListener an die einzelnen Boxen gehängt
         document.body.appendChild(div);
     }
     //Brief zeichnen
@@ -61,7 +64,7 @@ var A9;
         letter.style.height = "300px";
         letter.style.marginTop = "10px";
         letter.style.marginRight = "2px";
-        letter.addEventListener("click", setLetters);
+        letter.addEventListener("click", setLetters); //EventListener damit die Buchstaben gesetzt werden können
         document.body.appendChild(letter);
     }
     //Buchstaben in Brief einfügen
@@ -80,7 +83,7 @@ var A9;
         box.style.top = _event.pageY + "px";
         box.addEventListener("click", deleteLetter);
         document.body.appendChild(box);
-        let clicking = _event.target;
+        //  let clicking: HTMLDivElement = <HTMLDivElement>_event.target;
     }
     //Buchstaben mit Tastatur auswählen
     function tastaturEingabe(event) {

@@ -186,6 +186,7 @@ namespace Abschluss {
         click.style.borderStyle= "solid";
         click.style.borderColor= "yellow";
         
+        
         currentFlagOne= click.id
         
        let divlistFlag: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("flaggen");

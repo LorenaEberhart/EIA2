@@ -12,7 +12,7 @@ Er wurde nicht kopiert und auch nicht diktiert.
 namespace Abschluss {
      window.addEventListener("load", init);
     
-   
+   alert("Helfe Deutschland neue Länderfreundschaften zu bilden. \nKlicke dazu zunächst die deutsche Flagge an und danach die Flagge deiner Wahl.");
     
     
     let currentFlagOne: string;
